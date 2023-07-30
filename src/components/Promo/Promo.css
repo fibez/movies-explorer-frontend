@@ -15,3 +15,15 @@
     line-height: 58px; /* 116% */
     letter-spacing: -2px;
 }
+
+@media screen and (max-width: 450px) {
+    .promo__title {
+        padding-top: 142px;
+        padding-bottom: 180px;
+        max-width: 300px;
+        font-size: 31px;
+        line-height: 39px;
+        letter-spacing: -1.24px;
+        background-size: 248px 248px;
+    }
+}
