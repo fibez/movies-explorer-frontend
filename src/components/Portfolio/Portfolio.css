@@ -50,6 +50,10 @@
     letter-spacing: -1.2px;
 }
 
+.portfolio__list-element:hover {
+    opacity: 0.7;
+}
+
 .portfolio__list-text {
     color: #000;
     font-family: Inter;

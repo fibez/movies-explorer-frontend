@@ -1,0 +1,106 @@
+.burgermenu {
+    font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+    width: 520px;
+    height: 100%;
+    background-color: #fff;
+    color: #000;
+    padding: 22px 22px 90px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: -520px;
+    transition: right 0.3s linear;
+}
+
+.burgermenu_is_opened {
+    right: 0;
+}
+
+.burgermenu__nav-list {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    margin: 105px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+}
+
+.burgermenu__nav-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.burgermenu__nav-links {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.burgermenu__nav-link {
+    border: none;
+    background-color: transparent;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-decoration: none;
+    color: #000;
+}
+
+.burgermenu__nav-link_active {
+    padding-bottom: 4px;
+    border-bottom: 2px solid #000;
+}
+
+.burgermenu__close-button {
+    width: 30px;
+    min-height: 30px;
+    background-color: #fff;
+    background-image: url('../../images/popupclosebutton.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-self: flex-end;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.5s linear;
+}
+
+.burgermenu__close-button:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 520px) {
+    .burgermenu {
+        width: 100%;
+        padding: 13.44px 13.44px 46px;
+    }
+
+    .burgermenu__nav-list {
+        margin-top: 99.44px;
+    }
+
+    .burgermenu__nav-links {
+        gap: 24px;
+    }
+
+    .burgermenu__nav-link_active {
+        padding-bottom: 7px;
+    }
+}

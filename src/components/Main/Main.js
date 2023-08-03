@@ -1,4 +1,3 @@
-// import Logo from "../Logo/Logo";
 import Header from '../Header/Header';
 import Promo from '../Promo/Promo';
 import NavTab from '../NavTab/NavTab';
@@ -10,7 +9,7 @@ import Footer from '../Footer/Footer';
 function Main(props) {
     return (
         <>
-            <Header isLoggedIn={props.isLoggedIn}></Header>
+            <Header isLoggedIn={props.isLoggedOut}></Header>
             <Promo />
             <NavTab />
             <AboutProject />

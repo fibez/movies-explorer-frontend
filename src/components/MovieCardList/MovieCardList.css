@@ -1,0 +1,136 @@
+.moviecardlist {
+    padding: 70px 70px 80px;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.moviecardlist__cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.moviecardlist__card {
+    width: 270px;
+    background-color: #ffffff;
+    filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.05));
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.moviecardlist__card-cover {
+    width: 100%;
+    height: 151px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.moviecardlist__card-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 12px 10px;
+}
+
+.moviecardlist__card-title {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.moviecardlist__card-duration {
+    margin: 0 0 0 14px;
+    padding-bottom: 14px;
+    color: #a0a0a0;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.moviecardlist__card-saved-button {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background-color: transparent;
+    background-image: url('../../images/save8d.svg');
+    background-position: center 25%;
+}
+
+.moviecardlist__more-films {
+    margin-top: 68px;
+    width: 320px;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+    background: #f4f4f4;
+}
+
+.moviecardlist__more-films_type_hidden {
+    display: none;
+}
+
+.moviecardlist__more-films:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    background-color: #f8f8f8;
+}
+
+@media screen and (max-width: 1279px) {
+    .moviecardlist__cards {
+        max-width: 850px;
+    }
+}
+
+@media screen and (max-width: 989px) {
+    .moviecardlist__cards {
+        max-width: 560px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .moviecardlist {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .moviecardlist__cards {
+        max-width: 708px;
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .moviecardlist__cards {
+        max-width: min-content;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .moviecardlist {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .moviecardlist__cards {
+        gap: 18px;
+    }
+
+    .moviecardlist__more-films {
+        margin-top: 78px;
+    }
+}

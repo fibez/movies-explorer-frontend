@@ -100,17 +100,13 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 17px; /* 121.429% */
+    line-height: 17px;
 }
 
 @media screen and (max-width: 800px) {
     .about-project {
         padding-left: 50px;
         padding-right: 50px;
-    }
-
-    .about-project__content {
-        gap: 30px;
     }
 
     .about-project__content-description {

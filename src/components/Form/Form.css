@@ -1,0 +1,40 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 396px;
+}
+
+.form__submit-button {
+    margin-top: 69px;
+    border: none;
+    border-radius: 3px;
+    background: #3456f3;
+    padding-top: 13px;
+    padding-bottom: 15px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.form__submit-button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.form__submit-button_type_profile {
+    margin-top: 210px;
+    display: none;
+}
+
+.form__submit-button_type_profile-enable {
+    display: block;
+}
+
+@media screen and (max-width: 450px) {
+    .form {
+        width: 260px;
+    }
+}

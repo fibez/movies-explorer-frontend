@@ -1,0 +1,99 @@
+.authenticationpage {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.authenticationpage__title-container {
+    width: 396px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.authenticationpage__title {
+    margin: 0;
+    padding: 0;
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.authenticationpage__title_type_profile {
+    text-align: center;
+}
+
+.authenticationpage__footer {
+    margin: 16px 0 70px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.authenticationpage__footer_type_profile {
+    flex-direction: column;
+    gap: 16px;
+}
+
+.authenticationpage__footer-link-description {
+    margin: 0;
+    padding: 0;
+    color: #a0a0a0;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.authenticationpage__footer-link {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #3456f3;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.authenticationpage__footer-link_type_edit-profile {
+    margin-top: 204px;
+    background-color: transparent;
+    border: none;
+}
+
+.authenticationpage__footer-link_type_profile-logout {
+    color: #ee3465;
+    text-align: center;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.authenticationpage__footer-link_type_hidden {
+    display: none;
+}
+
+@media screen and (max-width: 450px) {
+    .authenticationpage__title-container {
+        width: 260px;
+        align-items: center;
+    }
+
+    .authenticationpage__title {
+        text-align: center;
+    }
+
+    .authenticationpage__footer {
+        margin-top: 14px;
+    }
+}

@@ -71,6 +71,12 @@
     border-radius: 10px;
 }
 
+@media screen and (max-width: 989px) {
+    .aboutme__container {
+        gap: 49px;
+    }
+}
+
 @media screen and (max-width: 800px) {
     .aboutme {
         padding-left: 50px;
@@ -91,7 +97,6 @@
     }
 
     .aboutme__content-bio {
-        /* margin-bottom: 87px; */
         font-size: 12px;
         line-height: 18px;
     }

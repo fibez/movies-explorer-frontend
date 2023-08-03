@@ -3,10 +3,19 @@
     display: flex;
     align-items: center;
     position: relative;
+    justify-content: space-between;
 }
 
-.header_unauthorized {
+.header__unauthorized {
     background-color: #dddee3;
+}
+
+.header__authorized {
+    background-color: #fafafa;
+}
+
+.header__authorized_type_profile {
+    background-color: #fff;
 }
 
 @media screen and (max-width: 800px) {
