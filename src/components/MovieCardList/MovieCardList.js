@@ -1,10 +1,14 @@
 import './MovieCardList.css';
 import MovieCard from '../MovieCard/MovieCard';
+import Devider from '../Devider/Devider';
+import AddFilmsButton from '../AddFilmsButton/AddFilmsButton';
 
 function MovieCardList(props) {
     function getClassNameByMovieListLength() {
-        if (props.movies.length < 25) {
-            return 'moviecardlist__more-films_type_hidden';
+        if (props.movies.length <= 24) {
+            return <Devider />;
+        } else {
+            return <AddFilmsButton />;
         }
     }
 
@@ -14,12 +18,10 @@ function MovieCardList(props) {
 
     return (
         <section className="moviecardlist">
-            <div className="moviecardlist__container">
-                <ul className="moviecardlist__cards">
-                    <MovieCard movies={sliceMoviesList()} />
-                </ul>
+            <div className="moviecardlist__cards">
+                <MovieCard movies={sliceMoviesList()} />
             </div>
-            <button className={`moviecardlist__more-films ${getClassNameByMovieListLength()}`}>Еще</button>
+            {getClassNameByMovieListLength()}
         </section>
     );
 }

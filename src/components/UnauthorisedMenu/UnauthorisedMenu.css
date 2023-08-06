@@ -59,4 +59,23 @@
     .unauthorised-menu {
         gap: 14px;
     }
+
+    .unauthorised-menu__link {
+        color: #000;
+        text-align: right;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px; /* 160% */
+    }
+
+    .unauthorised-menu__button_type_login {
+        padding: 0;
+        width: 54px;
+        color: #fff;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px; /* 160% */
+    }
 }

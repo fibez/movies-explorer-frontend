@@ -4,7 +4,7 @@ import PromoSectionTitle from '../PromoSectionTitle/PromoSectionTitile';
 function Tehcs() {
     return (
         <section className="tehcs" id="tehcs">
-            <PromoSectionTitle title={'Технологии'} />
+            <PromoSectionTitle title={'Технологии'} marginClass={'section-title_type_big-margin'} />
             <div className="tehcs__content">
                 <h3 className="tehcs__title">7 технологий</h3>
                 <p className="tehcs__descriptions">

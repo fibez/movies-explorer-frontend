@@ -55,6 +55,7 @@ function App() {
     }
 
     function handleBurgerMenuOpen() {
+        console.log(isBurgerMenuOppened);
         setBurgerMenuOpened(true);
     }
 
@@ -113,6 +114,7 @@ function App() {
                             isProfileEdit={isProfileEdit}
                             onProfileEdit={handleEnableProfileEdit}
                             onProfileEditSubmit={handleDisableProfileEdit}
+                            isBurgerMenuOppened={isBurgerMenuOppened}
                             onBurgerMenuOpen={handleBurgerMenuOpen}
                             onBurgerMenuClose={handleBurgerMenuClose}
                         />

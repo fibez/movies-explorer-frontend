@@ -19,22 +19,50 @@
     line-height: normal;
 }
 
+.form__submit-button_type_login {
+    margin-top: 138px;
+}
+
 .form__submit-button:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
 .form__submit-button_type_profile {
-    margin-top: 210px;
     display: none;
 }
 
-.form__submit-button_type_profile-enable {
+.form__submit-button_type_profile-shown {
     display: block;
+}
+
+.form__submit-button_type_profile-disabled {
+    background-color: #f8f8f8;
+    color: #c2c2c2;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.form__submit-button_type_profile-disabled:hover {
+    opacity: 1;
+    cursor: default;
 }
 
 @media screen and (max-width: 450px) {
     .form {
         width: 260px;
+    }
+
+    .form__submit-button {
+        color: #fff;
+        text-align: center;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
     }
 }

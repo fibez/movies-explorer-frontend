@@ -1,10 +1,33 @@
 import './Profile.css';
 import Header from '../Header/Header';
 import AuthenticationPage from '../AuthenticationPage/AuthenticationPage';
+import { useEffect, useState } from 'react';
 
 function Profile(props) {
     const isLogoHidden = true;
     const userName = 'Виталий';
+
+    const [nameInputValue, setNameInputValue] = useState('');
+    const [emailInputValue, setEmailInputValue] = useState('');
+    const [submitButtonState, setSubmitButtonState] = useState(true);
+
+    useEffect(() => {
+        disableButton();
+    }, [nameInputValue, emailInputValue, submitButtonState]);
+
+    function handleNameInputChange(event) {
+        const value = event.target.value;
+        setNameInputValue(value);
+    }
+
+    function handleEmailInputChange(event) {
+        const value = event.target.value;
+        setEmailInputValue(value);
+    }
+
+    function disableButton() {
+        return setSubmitButtonState(nameInputValue.length > 4 || emailInputValue.length > 4);
+    }
 
     return (
         <>
@@ -25,6 +48,7 @@ function Profile(props) {
                 isProfileEdit={props.isProfileEdit}
                 onProfileEdit={props.onProfileEdit}
                 onSubmit={props.onProfileEditSubmit}
+                isSubmitButtonDisable={submitButtonState}
             >
                 <div className="profile__input-container">
                     <label className="profile__input-label">Имя</label>
@@ -40,6 +64,7 @@ function Profile(props) {
                         defaultValue="Виталий"
                         required
                         disabled={props.isProfileEdit ? '' : 'disabled'}
+                        onChange={handleNameInputChange}
                     />
                 </div>
                 <div className="profile__input-container">
@@ -58,6 +83,7 @@ function Profile(props) {
                         defaultValue="pochta@yandex.ru"
                         required
                         disabled={props.isProfileEdit ? '' : 'disabled'}
+                        onChange={handleEmailInputChange}
                     />
                 </div>
             </AuthenticationPage>

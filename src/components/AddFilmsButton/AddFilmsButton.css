@@ -1,0 +1,39 @@
+.addfilmsbutton {
+    margin-top: 48px;
+    margin-bottom: 80px;
+    width: 320px;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+    background: #f4f4f4;
+    color: #000;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.addfilmsbutton_type_hidden {
+    display: none;
+}
+
+.addfilmsbutton:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    background-color: #f8f8f8;
+}
+
+@media screen and (max-width: 650px) {
+    .addfilmsbutton {
+        margin-top: 78px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .addfilmsbutton {
+        width: 240px;
+        margin-top: 55px;
+        margin-bottom: 75px;
+    }
+}

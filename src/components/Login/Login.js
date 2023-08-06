@@ -35,7 +35,7 @@ function Login(props) {
                     className="login__input login__input_is_not-valid"
                     name="password"
                     id="password"
-                    placeholder="Пароль"
+                    placeholder=""
                     minLength="6"
                     maxLength="30"
                     autoComplete="off"

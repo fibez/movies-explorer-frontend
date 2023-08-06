@@ -8,32 +8,32 @@ function MovieCard(props) {
         const currentPath = location.pathname;
 
         if (currentPath === '/saved-movies') {
-            return 'moviecardlist__card-save-button_type_remove-from-saved';
+            return 'moviecard__card-save-button_type_remove-from-saved';
         }
     }
 
     function setMokupFilmCards() {
         return props.movies.map((element) => {
             return (
-                <li key={element.id} className="moviecardlist__card">
-                    <img className="moviecardlist__card-cover" src={element.cover} alt="movie cover" />
-                    <div className="moviecardlist__card-container">
-                        <p className="moviecardlist__card-title">{element.title}</p>
+                <li key={element.id} className="moviecard__card">
+                    <img className="moviecard__card-cover" src={element.cover} alt="movie cover" />
+                    <div className="moviecard__card-container">
+                        <p className="moviecard__card-title">{element.title}</p>
                         <button
-                            className={`moviecardlist__card-save-button ${
-                                element.isSaved ? 'moviecardlist__card-save-button_type_saved' : ''
+                            className={`moviecard__card-save-button ${
+                                element.isSaved ? 'moviecard__card-save-button_type_saved' : ''
                             } ${getClassByPath()}`}
                         ></button>
                     </div>
-                    <p className="moviecardlist__card-duration">{element.duration}</p>
+                    <p className="moviecard__card-duration">{element.duration}</p>
                 </li>
             );
         });
     }
 
     return (
-        <div className="moviecardlist__container">
-            <ul className="moviecardlist__cards">{setMokupFilmCards()}</ul>
+        <div className="moviecard__container">
+            <ul className="moviecard__cards">{setMokupFilmCards()}</ul>
         </div>
     );
 }

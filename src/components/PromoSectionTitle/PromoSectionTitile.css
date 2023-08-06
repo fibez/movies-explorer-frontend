@@ -1,6 +1,6 @@
 .section-title {
     margin: 0;
-    padding: 100px 0 23px;
+    padding: 110px 0 23px;
     border-bottom: 1px solid black;
 
     color: #000;
@@ -11,9 +11,17 @@
     letter-spacing: -0.88px;
 }
 
+.section-title_type_big-margin {
+    margin-top: 10px;
+}
+
 @media screen and (max-width: 800px) {
     .section-title {
         padding-top: 90px;
+    }
+
+    .section-title_type_big-margin {
+        margin-top: 0;
     }
 }
 

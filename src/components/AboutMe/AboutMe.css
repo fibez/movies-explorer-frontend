@@ -63,6 +63,10 @@
     text-decoration: none;
 }
 
+.aboutme__github-link:hover {
+    opacity: 0.8;
+}
+
 .aboutme__photo {
     width: 270px;
     height: 327px;
@@ -81,7 +85,7 @@
     .aboutme {
         padding-left: 50px;
         padding-right: 50px;
-        padding-bottom: 90px;
+        padding-bottom: 80px;
     }
 
     .aboutme__content-title {
@@ -100,6 +104,11 @@
         font-size: 12px;
         line-height: 18px;
     }
+
+    .aboutme__photo {
+        width: 255px;
+        height: 307px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -113,6 +122,7 @@
     .aboutme {
         padding-left: 14px;
         padding-right: 14px;
+        padding-bottom: 90px;
     }
 
     .aboutme__photo {

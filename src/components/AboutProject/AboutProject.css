@@ -114,6 +114,14 @@
         line-height: 18px;
     }
 
+    .about-project__stages-element_type-backend {
+        width: 140px;
+    }
+
+    .about-project__stages {
+        margin-top: 91px;
+    }
+
     .about-project__stages-description {
         margin-bottom: 90px;
         font-weight: 400;

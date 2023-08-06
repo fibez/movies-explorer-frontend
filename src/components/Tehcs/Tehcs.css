@@ -1,7 +1,7 @@
 .tehcs {
     margin: 0;
     padding: 0 70px;
-    background-color: #fafafa;
+    background-color: #f5f5f5;
 }
 
 .tehcs__content {
@@ -62,6 +62,10 @@
     .tehcs {
         padding-left: 50px;
         padding-right: 50px;
+    }
+
+    .tehcs__title {
+        margin-top: 80px;
     }
 
     .tehcs__descriptions {

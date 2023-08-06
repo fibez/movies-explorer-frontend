@@ -11,7 +11,7 @@ function UnauthorisedMenu() {
             </li>
             <li>
                 <NavLink to="/signin" className="unauthorised-menu__link unauthorised-menu__link_type_button">
-                    <button className="unauthorised-menu__button unauthorised-menu__button_type_login">Вход</button>
+                    <button className="unauthorised-menu__button unauthorised-menu__button_type_login">Войти</button>
                 </NavLink>
             </li>
         </ul>

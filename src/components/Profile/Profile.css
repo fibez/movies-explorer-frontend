@@ -31,11 +31,13 @@
 }
 
 .profile__input::placeholder {
+    color: #000;
+    text-align: right;
+    font-family: Inter;
+    font-size: 11px;
     font-style: normal;
     font-weight: 400;
-    font-size: 13px;
-    line-height: 16px;
-    color: #a0a0a0;
+    line-height: normal;
 }
 
 .profile__input_is_not-valid {
@@ -63,5 +65,14 @@
 @media screen and (max-width: 450px) {
     .profile__error:last-of-type {
         margin-bottom: 157px;
+    }
+
+    .profile__input {
+        color: #000;
+        text-align: right;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
     }
 }

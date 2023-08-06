@@ -69,6 +69,10 @@
         font-size: 28px;
         letter-spacing: -1.12px;
     }
+
+    .portfolio__title {
+        margin-top: 90px;
+    }
 }
 
 @media screen and (max-width: 450px) {

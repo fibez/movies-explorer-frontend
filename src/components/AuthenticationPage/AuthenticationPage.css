@@ -26,6 +26,7 @@
 
 .authenticationpage__title_type_profile {
     text-align: center;
+    padding-bottom: 85px;
 }
 
 .authenticationpage__footer {
@@ -64,9 +65,16 @@
 }
 
 .authenticationpage__footer-link_type_edit-profile {
-    margin-top: 204px;
+    margin-top: 190px;
     background-color: transparent;
     border: none;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .authenticationpage__footer-link_type_profile-logout {
@@ -83,10 +91,50 @@
     display: none;
 }
 
+@media screen and (max-width: 900px) {
+    .authenticationpage__title_type_profile {
+        margin-top: 162px;
+        padding-bottom: 57px;
+    }
+
+    .authenticationpage__footer-link_type_edit-profile {
+        margin-top: 180px;
+    }
+}
+
 @media screen and (max-width: 450px) {
     .authenticationpage__title-container {
         width: 260px;
         align-items: center;
+        gap: 50px;
+        padding-bottom: 80px;
+    }
+
+    .authenticationpage__title_type_profile {
+        margin-top: 14px;
+        padding-bottom: 2px;
+    }
+
+    .authenticationpage {
+        padding-top: 56px;
+    }
+
+    .authenticationpage__footer-link-description {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .authenticationpage__footer-link {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .authenticationpage__footer-link_type_edit-profile {
+        margin-top: 352px;
     }
 
     .authenticationpage__title {

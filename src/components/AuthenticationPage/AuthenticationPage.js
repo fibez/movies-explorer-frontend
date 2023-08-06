@@ -16,6 +16,7 @@ function AuthenticationPage({
     isProfileEdit,
     onProfileEdit,
     onSubmit,
+    isSubmitButtonDisable,
 }) {
     return (
         <section className="authenticationpage">
@@ -35,6 +36,7 @@ function AuthenticationPage({
                 name={'register'}
                 isProfileEdit={isProfileEdit}
                 onSubmit={onSubmit}
+                isSubmitButtonDisable={isSubmitButtonDisable}
             >
                 {children}
             </Form>

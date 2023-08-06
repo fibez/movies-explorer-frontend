@@ -36,10 +36,21 @@
     border: none;
     background-color: transparent;
     width: 100%;
+    padding: 0 0 0 10px;
 }
 
 .searchform__input:focus {
     outline: 1px solid #3456f3;
+}
+
+.searchform__input::placeholder {
+    color: #a0a0a0;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 111.111% */
 }
 
 .searchfomr__search-icon {
@@ -52,6 +63,7 @@
     cursor: pointer;
     border: none;
     background-color: transparent;
+    padding-left: 0;
     padding-right: 19px;
     border-right: 1px solid #cbcbcb;
 }
@@ -63,6 +75,10 @@
 @media screen and (max-width: 900px) {
     .searchform {
         padding: 80px 30px 10px;
+    }
+
+    .searchfomr__container {
+        padding-bottom: 108px;
     }
 }
 
@@ -78,5 +94,22 @@
 
     .searchform__submit-button {
         border: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .searchform__input::placeholder {
+        padding-left: 10px;
+        color: #a0a0a0;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 142.857% */
+    }
+
+    .searchfomr__search-icon {
+        display: none;
     }
 }
