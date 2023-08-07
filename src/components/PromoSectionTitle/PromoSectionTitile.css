@@ -11,8 +11,8 @@
     letter-spacing: -0.88px;
 }
 
-.section-title_type_big-margin {
-    margin-top: 10px;
+.section-title_small-padding {
+    padding-top: 100px;
 }
 
 @media screen and (max-width: 800px) {

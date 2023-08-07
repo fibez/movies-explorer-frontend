@@ -1,4 +1,4 @@
-.notfound {
+.notfound__content {
     padding: 246px 0 0;
     background-color: #fff;
     display: flex;
@@ -39,16 +39,21 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    cursor: pointer;
+}
+
+.notfound__return-link:hover {
+    opacity: 0.7;
 }
 
 @media screen and (max-width: 900px) {
-    .notfound {
+    .notfound__content {
         padding-top: 408px;
     }
 }
 
 @media screen and (max-width: 450px) {
-    .notfound {
+    .notfound__content {
         padding-top: 329px;
     }
 

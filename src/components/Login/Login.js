@@ -10,6 +10,7 @@ function Login(props) {
                 linkDescriptionText={'Ещё не зарегистрированы?'}
                 linkText={'Регистрация'}
                 onSubmit={props.onNavigate}
+                navTo="/signup"
             >
                 <label htmlFor="email" className="login__input-label">
                     E-mail
@@ -35,7 +36,7 @@ function Login(props) {
                     className="login__input login__input_is_not-valid"
                     name="password"
                     id="password"
-                    placeholder=""
+                    placeholder="Пароль"
                     minLength="6"
                     maxLength="30"
                     autoComplete="off"

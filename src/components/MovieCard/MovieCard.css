@@ -1,17 +1,16 @@
 .moviecard {
     list-style: none;
-    margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(200px, 270px) minmax(200px, 270px) minmax(200px, 270px) minmax(200px, 270px);
+    grid-template-rows: min-content min-content min-content;
     gap: 32px 20px;
-    box-sizing: border-box;
     padding-bottom: 30px;
 }
 
 .moviecard__card {
-    width: 270px;
+    width: 100%;
     background-color: #ffffff;
     filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.05));
     border-radius: 10px;
@@ -83,34 +82,38 @@
     background-size: contain;
 }
 
-@media screen and (max-width: 900px) {
-    .moviecard__card {
-        width: 339px;
-    }
-
-    .moviecard__card-cover {
-        height: 190px;
-    }
-
+@media screen and (max-width: 1150px) {
     .moviecard {
+        grid-template-columns: minmax(250px, 339px) minmax(250px, 339px) minmax(250px, 339px);
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .moviecard {
+        grid-template-columns: minmax(200px, 339px) minmax(200px, 339px);
         gap: 36px 30px;
     }
 }
 
+@media screen and (max-width: 900px) {
+    .moviecard__card-cover {
+        height: 190px;
+    }
+}
+
 @media screen and (max-width: 650px) {
-    .moviecard__card {
-        width: 300px;
-    }
-
-    .moviecard {
-        gap: 20px;
-    }
-
     .moviecard__card-container {
         padding-bottom: 10px;
     }
 
     .moviecard__card-cover {
         height: 168px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .moviecard {
+        grid-template-columns: minmax(min-content, 300px);
+        gap: 20px 30px;
     }
 }

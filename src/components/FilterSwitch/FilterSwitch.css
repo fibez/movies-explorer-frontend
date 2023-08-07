@@ -33,7 +33,7 @@
 }
 
 .filterswitch__invisible-checkbox + .filterswitch__visible-checkbox:hover {
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .filterswitch__invisible-checkbox:checked + .filterswitch__visible-checkbox_type_checked {

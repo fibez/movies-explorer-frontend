@@ -19,7 +19,12 @@ function AbooutMe() {
                             начать выполнять фриланс-заказы.
                         </p>
                     </div>
-                    <a className="aboutme__github-link" href="https://github.com/fibez">
+                    <a
+                        className="aboutme__github-link"
+                        href="https://github.com/fibez"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         Github
                     </a>
                 </div>

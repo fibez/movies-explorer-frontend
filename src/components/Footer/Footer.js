@@ -12,12 +12,22 @@ function Footer() {
                 <span className="footer__copyright">© 2023</span>
                 <ul className="footer__links-list">
                     <li>
-                        <a className="footer__links-list-element" href="https://practicum.yandex.ru/">
+                        <a
+                            className="footer__links-list-element"
+                            href="https://practicum.yandex.ru/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             Яндекс.Практикум
                         </a>
                     </li>
                     <li>
-                        <a className="footer__links-list-element" href="https://github.com/fibez">
+                        <a
+                            className="footer__links-list-element"
+                            href="https://github.com/fibez"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             Github
                         </a>
                     </li>

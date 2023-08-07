@@ -52,7 +52,7 @@ function Profile(props) {
                     isSubmitButtonDisable={submitButtonState}
                 >
                     <div className="profile__input-container">
-                        <label className="profile__input-label" id="name">
+                        <label className="profile__input-label" htmlFor="name">
                             Имя
                         </label>
                         <input
@@ -70,7 +70,7 @@ function Profile(props) {
                             onChange={handleNameInputChange}
                         />
                     </div>
-                    <div className="profile__input-container">
+                    <div className="profile__input-container profile__input-container_borderless">
                         <label htmlFor="email" className="profile__input-label">
                             E-mail
                         </label>

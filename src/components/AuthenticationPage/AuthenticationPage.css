@@ -7,7 +7,7 @@
 }
 
 .authenticationpage__title-container {
-    width: 396px;
+    width: 410px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -25,19 +25,19 @@
     line-height: normal;
 }
 
-.authenticationpage__title_type_profile {
+.authenticationpage__title_profile {
     text-align: center;
     padding-bottom: 85px;
 }
 
 .authenticationpage__footer {
-    margin: 16px 0 70px;
+    margin: 0px 0 70px;
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-.authenticationpage__footer_type_profile {
+.authenticationpage__footer_profile {
     flex-direction: column;
     gap: 16px;
 }
@@ -67,8 +67,13 @@
     line-height: normal;
 }
 
-.authenticationpage__footer-link_type_edit-profile {
-    margin-top: 190px;
+.authenticationpage__footer-link:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.authenticationpage__footer-link_edit-profile {
+    margin-top: 183px;
     background-color: transparent;
     border: none;
     color: #000;
@@ -80,7 +85,7 @@
     line-height: normal;
 }
 
-.authenticationpage__footer-link_type_profile-logout {
+.authenticationpage__footer-link_profile-logout {
     color: #ee3465;
     text-align: center;
     font-family: 'Inter', 'Arial', sans-serif;
@@ -90,17 +95,17 @@
     line-height: normal;
 }
 
-.authenticationpage__footer-link_type_hidden {
+.authenticationpage__footer-link_hidden {
     display: none;
 }
 
 @media screen and (max-width: 900px) {
-    .authenticationpage__title_type_profile {
+    .authenticationpage__title_profile {
         margin-top: 162px;
         padding-bottom: 57px;
     }
 
-    .authenticationpage__footer-link_type_edit-profile {
+    .authenticationpage__footer-link_edit-profile {
         margin-top: 180px;
     }
 }
@@ -113,7 +118,11 @@
         padding-bottom: 80px;
     }
 
-    .authenticationpage__title_type_profile {
+    .authenticationpage__footer-link_edit-profile {
+        margin-top: 328px;
+    }
+
+    .authenticationpage__title_profile {
         margin-top: 14px;
         padding-bottom: 2px;
     }

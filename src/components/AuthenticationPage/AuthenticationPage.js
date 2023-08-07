@@ -17,6 +17,7 @@ function AuthenticationPage({
     onProfileEdit,
     onSubmit,
     isSubmitButtonDisable,
+    navTo,
 }) {
     return (
         <section className="authenticationpage">
@@ -24,7 +25,7 @@ function AuthenticationPage({
                 <Logo isLogoHidden={isLogoHidden} />
                 <h1
                     className={`authenticationpage__title ${
-                        type === 'profile' ? 'authentictionpage__title_type_profile' : ''
+                        type === 'profile' ? 'authenticationpage__title_profile' : ''
                     }`}
                 >
                     {title}
@@ -33,7 +34,7 @@ function AuthenticationPage({
             <Form
                 buttonText={submitButtonText}
                 type={type}
-                name={'register'}
+                name={type}
                 isProfileEdit={isProfileEdit}
                 onSubmit={onSubmit}
                 isSubmitButtonDisable={isSubmitButtonDisable}
@@ -41,19 +42,20 @@ function AuthenticationPage({
                 {children}
             </Form>
             {isLoggedIn && (
-                <div className="authenticationpage__footer authenticationpage__footer_type_profile">
+                <div className="authenticationpage__footer authenticationpage__footer_profile">
                     <button
-                        className={`authenticationpage__footer-link authenticationpage__footer-link_type_edit-profile ${
-                            isProfileEdit ? 'authenticationpage__footer-link_type_hidden' : ''
+                        className={`authenticationpage__footer-link authenticationpage__footer-link_edit-profile ${
+                            isProfileEdit ? 'authenticationpage__footer-link_hidden' : ''
                         }`}
                         onClick={onProfileEdit}
+                        type="button"
                     >
                         Редактировать
                     </button>
                     <NavLink
                         to="/signin"
-                        className={`authenticationpage__footer-link authenticationpage__footer-link_type_profile-logout ${
-                            isProfileEdit ? 'authenticationpage__footer-link_type_hidden' : ''
+                        className={`authenticationpage__footer-link authenticationpage__footer-link_profile-logout ${
+                            isProfileEdit ? 'authenticationpage__footer-link_hidden' : ''
                         }`}
                     >
                         Выйти из аккаунта
@@ -63,14 +65,9 @@ function AuthenticationPage({
             {!isLoggedIn && (
                 <div className="authenticationpage__footer">
                     <p className="authenticationpage__footer-link-description">{linkDescriptionText}</p>
-                    <a
-                        href="/"
-                        className={`authenticationpage__footer-link ${
-                            type === 'profile' ? 'authenticationpage__footer-link_type_profile' : ''
-                        }`}
-                    >
+                    <NavLink to={navTo} className={`authenticationpage__footer-link`}>
                         {linkText}
-                    </a>
+                    </NavLink>
                 </div>
             )}
         </section>

@@ -10,7 +10,7 @@ function Form(props) {
         if (path === '/signin') {
             return ' form__submit-button_type_login';
         } else if (path === '/signup') {
-            return ' form__submit-button_type_signin';
+            return ' form__submit-button_type_signup';
         } else {
             return '';
         }

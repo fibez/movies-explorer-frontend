@@ -1,7 +1,7 @@
 .promo__title {
     max-width: 730px;
     margin: 0 auto;
-    padding: 184px 0 224px 0;
+    padding: 184px 0 207px 0;
     background-image: url(../../images/backgroundPromoImage.svg);
     background-position: center 83px;
     background-repeat: no-repeat;
@@ -19,7 +19,7 @@
     .promo__title {
         padding-top: 326px;
         background-position: center 222px;
-        padding-bottom: 344px;
+        padding-bottom: 325px;
     }
 }
 

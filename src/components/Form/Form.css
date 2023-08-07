@@ -21,6 +21,11 @@
 
 .form__submit-button_type_login {
     margin-top: 138px;
+    margin-bottom: 16px;
+}
+
+.form__submit-button_type_signup {
+    margin-bottom: 16px;
 }
 
 .form__submit-button:hover {
@@ -55,6 +60,14 @@
 @media screen and (max-width: 450px) {
     .form {
         width: 260px;
+    }
+
+    .form__submit-button_type_signup {
+        margin-bottom: 0;
+    }
+
+    .form__submit-button_type_login {
+        margin-bottom: 0;
     }
 
     .form__submit-button {

@@ -1,5 +1,5 @@
 .addfilmsbutton {
-    margin-top: 48px;
+    margin-top: 50px;
     margin-bottom: 80px;
     width: 320px;
     height: 36px;
@@ -27,14 +27,14 @@
 
 @media screen and (max-width: 650px) {
     .addfilmsbutton {
-        margin-top: 78px;
+        margin-top: 80px;
     }
 }
 
 @media screen and (max-width: 450px) {
     .addfilmsbutton {
         width: 240px;
-        margin-top: 55px;
-        margin-bottom: 75px;
+        margin-top: 50px;
+        margin-bottom: 78px;
     }
 }

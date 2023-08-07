@@ -6,7 +6,7 @@ function AccountButton() {
     const navigate = useNavigate();
 
     function navigateToProfile() {
-        navigate('/signin');
+        navigate('/profile');
     }
     return (
         <button className="accountbutton" onClick={navigateToProfile} type="button">

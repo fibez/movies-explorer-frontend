@@ -10,6 +10,7 @@ function Register(props) {
                 linkDescriptionText={'Уже зарегистрированы?'}
                 linkText={'Войти'}
                 onSubmit={props.onNavigate}
+                navTo="/signin"
             >
                 <label className="register__input-label">Имя</label>
                 <input
