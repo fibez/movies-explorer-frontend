@@ -11,9 +11,9 @@ function Header(props) {
 
     function getClassNameByPath() {
         if (currentPath === '/movies' || currentPath === '/saved-movies' || currentPath === '/profile') {
-            return 'header__authorized';
+            return 'header_authorized';
         } else {
-            return 'header__unauthorized';
+            return 'header_unauthorized';
         }
     }
 
@@ -24,7 +24,7 @@ function Header(props) {
     return (
         <header
             className={`header ${getClassNameByPath()} ${
-                currentPath === '/profile' ? 'header__authorized_type_profile' : ''
+                currentPath === '/profile' ? 'header_authorized-profile' : ''
             }`}
         >
             <Logo></Logo>

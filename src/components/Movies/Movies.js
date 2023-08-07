@@ -15,8 +15,10 @@ function Movies(props) {
                 onBurgerMenuOpen={props.onBurgerMenuOpen}
                 onBurgerMenuClose={props.onBurgerMenuClose}
             />
-            <SearchForm />
-            {props.isLoading ? <Preloader /> : <MovieCardList movies={props.movies} />}
+            <main className="movies">
+                <SearchForm />
+                {props.isLoading ? <Preloader /> : <MovieCardList movies={props.movies} />}
+            </main>
             <Footer />
         </>
     );

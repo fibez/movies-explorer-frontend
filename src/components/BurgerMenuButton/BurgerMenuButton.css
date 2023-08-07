@@ -1,7 +1,7 @@
 .burgermenubutton {
     display: none;
     padding: 0;
-    min-width: 44px;
+    width: 44px;
     height: 44px;
     background-color: transparent;
     background-image: url('../../images/burgermenubutton.svg');
@@ -30,7 +30,7 @@
 
 @media screen and (max-width: 544px) {
     .burgermenubutton {
-        min-width: 40px;
+        width: 40px;
         height: 43px;
     }
 }

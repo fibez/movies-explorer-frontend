@@ -5,10 +5,9 @@
     background-image: url(../../images/backgroundPromoImage.svg);
     background-position: center 83px;
     background-repeat: no-repeat;
-
     color: #000;
     text-align: center;
-    font-family: Inter;
+    font-family: 'Inter', 'Arial', sans-serif;
     font-size: 50px;
     font-style: normal;
     font-weight: 400;
@@ -29,6 +28,7 @@
         padding-top: 207px;
         padding-bottom: 245px;
         max-width: 300px;
+        font-family: 'Inter', 'Arial', sans-serif;
         font-size: 31px;
         line-height: 39px;
         letter-spacing: -1.24px;

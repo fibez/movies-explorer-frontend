@@ -23,7 +23,7 @@ function AbooutMe() {
                         Github
                     </a>
                 </div>
-                <img src={photo} className="aboutme__photo" alt="student portrait"></img>
+                <img src={photo} className="aboutme__photo" alt="Портрет студента"></img>
             </div>
             <Portfolio />
         </section>

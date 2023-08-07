@@ -10,7 +10,7 @@ function Logo(props) {
     const navigation = useNavigate();
     return (
         <img
-            className={`logo ${props.isLogoHidden ? 'logo__hidden' : ''}`}
+            className={`logo ${props.isLogoHidden ? 'logo_hidden' : ''}`}
             src={logo}
             alt="Логотип проекта Movie-explorer"
             onClick={navigateToMain}

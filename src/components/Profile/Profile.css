@@ -2,14 +2,15 @@
     position: relative;
 }
 
-.profile__input-container:first-of-type {
+.profile:first-of-type {
     margin-bottom: 17px;
 }
 
 .profile__input-label {
     position: absolute;
+    z-index: 10;
     color: #000;
-    font-family: Inter;
+    font-family: 'Inter', 'Arial', sans-serif;
     font-size: 11px;
     font-style: normal;
     font-weight: 500;
@@ -17,7 +18,9 @@
 }
 
 .profile__input {
+    position: relative;
     width: 100%;
+    font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -25,7 +28,7 @@
     border: none;
     border-bottom: 1px solid #e8e8e8;
     padding: 0 0 10px 0;
-    margin: 0;
+    margin: 0 0 20px;
     text-align: right;
     background-color: #fff;
 }
@@ -33,7 +36,7 @@
 .profile__input::placeholder {
     color: #000;
     text-align: right;
-    font-family: Inter;
+    font-family: 'Inter', 'Arial', sans-serif;
     font-size: 11px;
     font-style: normal;
     font-weight: 400;
@@ -42,10 +45,12 @@
 
 .profile__input_is_not-valid {
     color: #ee3465;
+    font-family: 'Inter', 'Arial', sans-serif;
 }
 
 .profile__error {
     color: #ee3465;
+    font-family: 'Inter', 'Arial', sans-serif;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;

@@ -3,7 +3,7 @@ import AuthenticationPage from '../AuthenticationPage/AuthenticationPage';
 
 function Login(props) {
     return (
-        <>
+        <main className="login">
             <AuthenticationPage
                 title={'Рады видеть!'}
                 submitButtonText={'Войти'}
@@ -41,9 +41,9 @@ function Login(props) {
                     autoComplete="off"
                     required
                 />
-                <span className="register__error"></span>
+                <span className="login__error"></span>
             </AuthenticationPage>
-        </>
+        </main>
     );
 }
 

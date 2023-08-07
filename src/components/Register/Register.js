@@ -3,7 +3,7 @@ import AuthenticationPage from '../AuthenticationPage/AuthenticationPage';
 
 function Register(props) {
     return (
-        <>
+        <main className="register">
             <AuthenticationPage
                 title={'Добро пожаловать!'}
                 submitButtonText={'Зарегистрироваться'}
@@ -58,7 +58,7 @@ function Register(props) {
                 />
                 <span className="register__error">Что-то пошло не так...</span>
             </AuthenticationPage>
-        </>
+        </main>
     );
 }
 

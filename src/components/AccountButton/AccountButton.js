@@ -1,14 +1,17 @@
 import './AccountButton.css';
 import accountIcon from '../../images/accounticon.svg';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function AccountButton() {
+    const navigate = useNavigate();
+
+    function navigateToProfile() {
+        navigate('/signin');
+    }
     return (
-        <NavLink to="/profile" className="accountbutton">
-            <button className="accountbutton__button">
-                <img className="accountbutton-icon>" src={accountIcon} alt="account icon"></img>Аккаунт
-            </button>
-        </NavLink>
+        <button className="accountbutton" onClick={navigateToProfile} type="button">
+            <img className="accountbutton-icon>" src={accountIcon} alt="Иконка кнопки аккаунта"></img>Аккаунт
+        </button>
     );
 }
 

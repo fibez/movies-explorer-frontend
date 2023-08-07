@@ -10,11 +10,13 @@ function Main(props) {
     return (
         <>
             <Header isLoggedIn={props.isLoggedOut}></Header>
-            <Promo />
-            <NavTab />
-            <AboutProject />
-            <Tehcs />
-            <AbooutMe />
+            <main className="main">
+                <Promo />
+                <NavTab />
+                <AboutProject />
+                <Tehcs />
+                <AbooutMe />
+            </main>
             <Footer />
         </>
     );

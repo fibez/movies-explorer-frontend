@@ -1,7 +1,12 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './UnauthorisedMenu.css';
 
 function UnauthorisedMenu() {
+    const navigate = useNavigate();
+
+    function navigateToLogin() {
+        navigate('/signin');
+    }
     return (
         <ul className="unauthorised-menu">
             <li>
@@ -10,9 +15,13 @@ function UnauthorisedMenu() {
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/signin" className="unauthorised-menu__link unauthorised-menu__link_type_button">
-                    <button className="unauthorised-menu__button unauthorised-menu__button_type_login">Войти</button>
-                </NavLink>
+                <button
+                    className="unauthorised-menu__button unauthorised-menu__button_login"
+                    type="button"
+                    onClick={navigateToLogin}
+                >
+                    Войти
+                </button>
             </li>
         </ul>
     );

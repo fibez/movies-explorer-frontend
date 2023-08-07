@@ -4,7 +4,7 @@ import Devider from '../Devider/Devider';
 import AddFilmsButton from '../AddFilmsButton/AddFilmsButton';
 
 function MovieCardList(props) {
-    function getClassNameByMovieListLength() {
+    function getElementNameByMovieListLength() {
         if (props.movies.length <= 24) {
             return <Devider />;
         } else {
@@ -18,10 +18,8 @@ function MovieCardList(props) {
 
     return (
         <section className="moviecardlist">
-            <div className="moviecardlist__cards">
-                <MovieCard movies={sliceMoviesList()} />
-            </div>
-            {getClassNameByMovieListLength()}
+            <MovieCard movies={sliceMoviesList()} />
+            {getElementNameByMovieListLength()}
         </section>
     );
 }

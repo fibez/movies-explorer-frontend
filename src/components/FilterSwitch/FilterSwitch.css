@@ -41,6 +41,7 @@
 }
 
 .filterswitch__text {
+    font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -64,7 +65,7 @@
 
 @media screen and (max-width: 650px) {
     .filterswitch {
-        padding-left: 12px;
+        padding-left: 0px;
         position: absolute;
         top: 117px;
         width: 100%;

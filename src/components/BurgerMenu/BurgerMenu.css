@@ -4,6 +4,7 @@
     height: 100%;
     background-color: #fff;
     color: #000;
+    font-family: 'Inter', 'Arial', sans-serif;
     padding: 22px 22px 90px;
     box-sizing: border-box;
     margin: 0 auto;
@@ -54,6 +55,7 @@
 .burgermenu__nav-link {
     border: none;
     background-color: transparent;
+    font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;

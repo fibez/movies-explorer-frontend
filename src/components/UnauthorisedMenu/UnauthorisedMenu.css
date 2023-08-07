@@ -6,9 +6,9 @@
     align-items: center;
     gap: 30px;
 
+    font-family: 'Inter', 'Arial', sans-serif;
     color: #000;
     text-align: right;
-    font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -18,6 +18,7 @@
 .unauthorised-menu__link {
     text-decoration: none;
     color: #000;
+    font-family: 'Inter', 'Arial', sans-serif;
     text-align: right;
     font-size: 12px;
     font-style: normal;
@@ -44,11 +45,11 @@
     background: #3456f3;
 }
 
-.unauthorised-menu__link_type_button {
+.unauthorised-menu__link_button {
     color: #fff;
 }
 
-.unauthorised-menu__button_type_login {
+.unauthorised-menu__button_login {
     padding: 5px 20px;
     background-color: #3456f3;
     border-radius: 3px;
@@ -69,7 +70,11 @@
         line-height: 16px; /* 160% */
     }
 
-    .unauthorised-menu__button_type_login {
+    .unauthorised-menu__link_button {
+        color: #fff;
+    }
+
+    .unauthorised-menu__button_login {
         padding: 0;
         width: 54px;
         color: #fff;

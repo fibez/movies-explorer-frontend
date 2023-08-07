@@ -38,55 +38,59 @@ function Profile(props) {
                 onBurgerMenuOpen={props.onBurgerMenuOpen}
                 onBurgerMenuClose={props.onBurgerMenuClose}
             />
-            <AuthenticationPage
-                isLoggedIn={props.isLoggedIn}
-                type={'profile'}
-                isLogoHidden={isLogoHidden}
-                title={`Привет, ${userName}!`}
-                submitButtonText={'Сохранить'}
-                linkText={'Выйти из аккаунта'}
-                isProfileEdit={props.isProfileEdit}
-                onProfileEdit={props.onProfileEdit}
-                onSubmit={props.onProfileEditSubmit}
-                isSubmitButtonDisable={submitButtonState}
-            >
-                <div className="profile__input-container">
-                    <label className="profile__input-label">Имя</label>
-                    <input
-                        type="text"
-                        className="profile__input"
-                        name="name"
-                        id="name"
-                        placeholder="Имя"
-                        minLength="2"
-                        maxLength="30"
-                        autoComplete="off"
-                        defaultValue="Виталий"
-                        required
-                        disabled={props.isProfileEdit ? '' : 'disabled'}
-                        onChange={handleNameInputChange}
-                    />
-                </div>
-                <div className="profile__input-container">
-                    <label htmlFor="email" className="profile__input-label">
-                        E-mail
-                    </label>
-                    <input
-                        type="email"
-                        className="profile__input"
-                        name="email"
-                        id="email"
-                        placeholder="E-mail"
-                        minLength="6"
-                        maxLength="30"
-                        autoComplete="off"
-                        defaultValue="pochta@yandex.ru"
-                        required
-                        disabled={props.isProfileEdit ? '' : 'disabled'}
-                        onChange={handleEmailInputChange}
-                    />
-                </div>
-            </AuthenticationPage>
+            <main className="profile">
+                <AuthenticationPage
+                    isLoggedIn={props.isLoggedIn}
+                    type={'profile'}
+                    isLogoHidden={isLogoHidden}
+                    title={`Привет, ${userName}!`}
+                    submitButtonText={'Сохранить'}
+                    linkText={'Выйти из аккаунта'}
+                    isProfileEdit={props.isProfileEdit}
+                    onProfileEdit={props.onProfileEdit}
+                    onSubmit={props.onProfileEditSubmit}
+                    isSubmitButtonDisable={submitButtonState}
+                >
+                    <div className="profile__input-container">
+                        <label className="profile__input-label" id="name">
+                            Имя
+                        </label>
+                        <input
+                            type="text"
+                            className="profile__input"
+                            name="name"
+                            id="name"
+                            placeholder="Имя"
+                            minLength="2"
+                            maxLength="30"
+                            autoComplete="off"
+                            defaultValue="Виталий"
+                            required
+                            disabled={props.isProfileEdit ? '' : 'disabled'}
+                            onChange={handleNameInputChange}
+                        />
+                    </div>
+                    <div className="profile__input-container">
+                        <label htmlFor="email" className="profile__input-label">
+                            E-mail
+                        </label>
+                        <input
+                            type="email"
+                            className="profile__input"
+                            name="email"
+                            id="email"
+                            placeholder="E-mail"
+                            minLength="6"
+                            maxLength="30"
+                            autoComplete="off"
+                            defaultValue="pochta@yandex.ru"
+                            required
+                            disabled={props.isProfileEdit ? '' : 'disabled'}
+                            onChange={handleEmailInputChange}
+                        />
+                    </div>
+                </AuthenticationPage>
+            </main>
         </>
     );
 }

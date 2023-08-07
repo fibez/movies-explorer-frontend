@@ -8,6 +8,7 @@
 }
 
 .register__input {
+    font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -19,6 +20,7 @@
 }
 
 .register__input::placeholder {
+    font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -28,10 +30,12 @@
 
 .register__input_is_not-valid {
     color: #ee3465;
+    font-family: 'Inter', 'Arial', sans-serif;
 }
 
 .register__error {
     color: #ee3465;
+    font-family: 'Inter', 'Arial', sans-serif;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;

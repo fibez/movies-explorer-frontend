@@ -24,7 +24,7 @@ function AuthenticationPage({
                 <Logo isLogoHidden={isLogoHidden} />
                 <h1
                     className={`authenticationpage__title ${
-                        type === 'profile' ? 'authenticationpage__title_type_profile' : ''
+                        type === 'profile' ? 'authentictionpage__title_type_profile' : ''
                     }`}
                 >
                     {title}
@@ -51,7 +51,7 @@ function AuthenticationPage({
                         Редактировать
                     </button>
                     <NavLink
-                        to="/"
+                        to="/signin"
                         className={`authenticationpage__footer-link authenticationpage__footer-link_type_profile-logout ${
                             isProfileEdit ? 'authenticationpage__footer-link_type_hidden' : ''
                         }`}

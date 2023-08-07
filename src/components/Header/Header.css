@@ -6,15 +6,15 @@
     justify-content: space-between;
 }
 
-.header__unauthorized {
+.header_unauthorized {
     background-color: #dddee3;
 }
 
-.header__authorized {
+.header_authorized {
     background-color: #fafafa;
 }
 
-.header__authorized_type_profile {
+.header_authorized-profile {
     background-color: #fff;
 }
 
@@ -26,6 +26,7 @@
 
 @media screen and (max-width: 450px) {
     .header {
+        padding-top: 15px;
         padding-left: 14px;
         padding-right: 14px;
     }
