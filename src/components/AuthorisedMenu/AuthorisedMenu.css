@@ -1,0 +1,47 @@
+.authorisedmenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.authorisedmenu__navigation {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    gap: 16px;
+}
+
+.authorisedmenu__navlink {
+    text-decoration: none;
+    color: #000;
+    font-family: 'Inter', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.authorisedmenu__navlink:hover {
+    opacity: 0.7;
+}
+
+.authorisedmenu__navlink_type_active {
+    font-weight: 500;
+}
+
+@media screen and (max-width: 900px) {
+    .authorisedmenu {
+        display: none;
+    }
+}
+
+.authorisedmenu__navigation {
+    align-items: center;
+    gap: 28px;
+}

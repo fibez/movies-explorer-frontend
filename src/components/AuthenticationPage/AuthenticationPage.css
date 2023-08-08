@@ -1,0 +1,159 @@
+.authenticationpage {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.authenticationpage__title-container {
+    width: 410px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.authenticationpage__title {
+    margin: 0;
+    padding: 0;
+    color: #000;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.authenticationpage__title_profile {
+    text-align: center;
+    padding-bottom: 85px;
+}
+
+.authenticationpage__footer {
+    margin: 0px 0 70px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.authenticationpage__footer_profile {
+    flex-direction: column;
+    gap: 16px;
+}
+
+.authenticationpage__footer-link-description {
+    margin: 0;
+    padding: 0;
+    color: #a0a0a0;
+    font-family: 'Inter', 'Arial', sans-serif;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.authenticationpage__footer-link {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #3456f3;
+    font-family: 'Inter', 'Arial', sans-serif;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.authenticationpage__footer-link:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.authenticationpage__footer-link_edit-profile {
+    margin-top: 183px;
+    background-color: transparent;
+    border: none;
+    color: #000;
+    font-family: 'Inter', 'Arial', sans-serif;
+    text-align: center;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.authenticationpage__footer-link_profile-logout {
+    color: #ee3465;
+    text-align: center;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.authenticationpage__footer-link_hidden {
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .authenticationpage__title_profile {
+        margin-top: 162px;
+        padding-bottom: 57px;
+    }
+
+    .authenticationpage__footer-link_edit-profile {
+        margin-top: 180px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .authenticationpage__title-container {
+        width: 260px;
+        align-items: center;
+        gap: 50px;
+        padding-bottom: 80px;
+    }
+
+    .authenticationpage__footer-link_edit-profile {
+        margin-top: 328px;
+    }
+
+    .authenticationpage__title_profile {
+        margin-top: 14px;
+        padding-bottom: 2px;
+    }
+
+    .authenticationpage {
+        padding-top: 56px;
+    }
+
+    .authenticationpage__footer-link-description {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .authenticationpage__footer-link {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .authenticationpage__footer-link_type_edit-profile {
+        margin-top: 352px;
+    }
+
+    .authenticationpage__title {
+        text-align: center;
+    }
+
+    .authenticationpage__footer {
+        margin-top: 14px;
+    }
+}

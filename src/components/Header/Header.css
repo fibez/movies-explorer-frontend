@@ -1,0 +1,33 @@
+.header {
+    padding: 21px 70px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+}
+
+.header_unauthorized {
+    background-color: #dddee3;
+}
+
+.header_authorized {
+    background-color: #fafafa;
+}
+
+.header_authorized-profile {
+    background-color: #fff;
+}
+
+@media screen and (max-width: 800px) {
+    .header {
+        padding: 18px 30px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .header {
+        padding-top: 15px;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}
