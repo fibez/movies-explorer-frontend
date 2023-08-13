@@ -16,8 +16,16 @@ function Movies(props) {
                 onBurgerMenuClose={props.onBurgerMenuClose}
             />
             <main className="movies">
-                <SearchForm />
-                {props.isLoading ? <Preloader /> : <MovieCardList movies={props.movies} />}
+                <SearchForm
+                    onSubmit={props.onMovieFindSubmit}
+                    setMovies={props.setMovies}
+                    //Фильтры
+                    setIsShortFilm={props.setIsShortFilm}
+                    setUserRequest={props.setUserRequest}
+                    userRequest={props.userRequest}
+                    onSubmitNew={props.onSubmitNew}
+                />
+                {props.isLoading ? <Preloader /> : <MovieCardList testMovies={props.testMovies} />}
             </main>
             <Footer />
         </>

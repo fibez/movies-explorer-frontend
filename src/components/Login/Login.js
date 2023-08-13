@@ -1,7 +1,16 @@
 import './Login.css';
 import AuthenticationPage from '../AuthenticationPage/AuthenticationPage';
+import useForm from '../../hooks/useForm';
 
 function Login(props) {
+    const { formValues, handleChange } = useForm();
+
+    function handleSubmitForm(e) {
+        e.preventDefault();
+        // console.log(formValues);
+        props.onSubmitSignIn(formValues);
+    }
+
     return (
         <main className="login">
             <AuthenticationPage
@@ -9,7 +18,7 @@ function Login(props) {
                 submitButtonText={'Войти'}
                 linkDescriptionText={'Ещё не зарегистрированы?'}
                 linkText={'Регистрация'}
-                onSubmit={props.onNavigate}
+                onSubmit={handleSubmitForm}
                 navTo="/signup"
             >
                 <label htmlFor="email" className="login__input-label">
@@ -24,7 +33,8 @@ function Login(props) {
                     minLength="6"
                     maxLength="30"
                     autoComplete="off"
-                    defaultValue="pochta@yandex.ru"
+                    value={formValues.name}
+                    onChange={handleChange}
                     required
                 />
                 <span className="login__error"></span>
@@ -40,6 +50,8 @@ function Login(props) {
                     minLength="6"
                     maxLength="30"
                     autoComplete="off"
+                    value={formValues.name}
+                    onChange={handleChange}
                     required
                 />
                 <span className="login__error"></span>

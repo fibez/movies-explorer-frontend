@@ -1,9 +1,12 @@
 import './Form.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
+import { useEffect, useState } from 'react';
 
 function Form(props) {
+    const { isValid } = useForm();
     const location = useLocation();
-
+    // const isButtonDisabled = !props.isFormValid;
     function getClassNameByPath() {
         const path = location.pathname;
 
@@ -16,28 +19,21 @@ function Form(props) {
         }
     }
 
-    function disableButton() {
-        if (props.isSubmitButtonDisable === false) {
-            return ' form__submit-button_type_profile-disabled';
-        } else {
-            return '';
-        }
-    }
-
     function submitForm(e) {
         e.preventDefault();
         props.onSubmit();
     }
 
     return (
-        <form action="#" className={`form`} name={props.name} onSubmit={submitForm}>
+        <form action="#" className="form" name={props.name} onSubmit={props.onSubmit} noValidate>
             {props.children}
 
             <button
                 type="submit"
+                // disabled={isButtonDisabled}
                 className={`form__submit-button${props.type === 'profile' ? ' form__submit-button_type_profile' : ''}${
                     props.isProfileEdit ? ' form__submit-button_type_profile-shown' : ''
-                }${getClassNameByPath()}${disableButton()}`}
+                }${getClassNameByPath()}${''}`}
             >
                 {props.buttonText}
             </button>

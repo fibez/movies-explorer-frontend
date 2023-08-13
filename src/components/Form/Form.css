@@ -41,7 +41,7 @@
     display: block;
 }
 
-.form__submit-button_type_profile-disabled {
+.form__submit-button_type_profile:disabled {
     background-color: #f8f8f8;
     color: #c2c2c2;
     text-align: center;

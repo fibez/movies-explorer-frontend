@@ -16,7 +16,7 @@ function AuthenticationPage({
     isProfileEdit,
     onProfileEdit,
     onSubmit,
-    isSubmitButtonDisable,
+    isValid,
     navTo,
 }) {
     return (
@@ -37,7 +37,7 @@ function AuthenticationPage({
                 name={type}
                 isProfileEdit={isProfileEdit}
                 onSubmit={onSubmit}
-                isSubmitButtonDisable={isSubmitButtonDisable}
+                isFormValid={isValid}
             >
                 {children}
             </Form>

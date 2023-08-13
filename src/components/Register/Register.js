@@ -1,7 +1,16 @@
 import './Register.css';
 import AuthenticationPage from '../AuthenticationPage/AuthenticationPage';
+import { useEffect } from 'react';
+import useForm from '../../hooks/useForm';
 
 function Register(props) {
+    const { formValues, handleChange } = useForm();
+
+    function handleSubmitForm(e) {
+        e.preventDefault();
+        props.onSubmitSignUp(formValues);
+    }
+
     return (
         <main className="register">
             <AuthenticationPage
@@ -9,7 +18,7 @@ function Register(props) {
                 submitButtonText={'Зарегистрироваться'}
                 linkDescriptionText={'Уже зарегистрированы?'}
                 linkText={'Войти'}
-                onSubmit={props.onNavigate}
+                onSubmit={handleSubmitForm}
                 navTo="/signin"
             >
                 <label className="register__input-label">Имя</label>
@@ -19,11 +28,9 @@ function Register(props) {
                     name="name"
                     id="name"
                     placeholder="Имя"
-                    minLength="2"
-                    maxLength="30"
                     autoComplete="off"
-                    defaultValue="Виталий"
-                    required
+                    value={formValues.name}
+                    onChange={handleChange}
                 />
                 <span className="register__error"></span>
                 <label htmlFor="email" className="register__input-label">
@@ -35,10 +42,9 @@ function Register(props) {
                     name="email"
                     id="email"
                     placeholder="E-mail"
-                    minLength="6"
-                    maxLength="30"
                     autoComplete="off"
-                    defaultValue="pochta@yandex.ru"
+                    value={formValues.email}
+                    onChange={handleChange}
                     required
                 />
                 <span className="register__error"></span>
@@ -51,10 +57,12 @@ function Register(props) {
                     name="password"
                     id="password"
                     placeholder="Пароль"
-                    minLength="6"
+                    // minLength="6"
                     maxLength="30"
                     autoComplete="off"
-                    defaultValue="12345678987654"
+                    // defaultValue="12345678987654"
+                    value={formValues.password}
+                    onChange={handleChange}
                     required
                 />
                 <span className="register__error">Что-то пошло не так...</span>

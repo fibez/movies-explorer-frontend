@@ -2,31 +2,25 @@ import './Profile.css';
 import Header from '../Header/Header';
 import AuthenticationPage from '../AuthenticationPage/AuthenticationPage';
 import { useEffect, useState } from 'react';
+import useForm from '../../hooks/useForm';
 
 function Profile(props) {
     const isLogoHidden = true;
-    const userName = 'Виталий';
-
     const [nameInputValue, setNameInputValue] = useState('');
     const [emailInputValue, setEmailInputValue] = useState('');
     const [submitButtonState, setSubmitButtonState] = useState(true);
 
+    const { formValues, handleChange, isValid } = useForm();
+
     useEffect(() => {
-        disableButton();
-    }, [nameInputValue, emailInputValue, submitButtonState]);
+        formValues.name = props.userData.name;
+        formValues.email = props.userData.email;
+    }, []);
 
-    function handleNameInputChange(event) {
-        const value = event.target.value;
-        setNameInputValue(value);
-    }
-
-    function handleEmailInputChange(event) {
-        const value = event.target.value;
-        setEmailInputValue(value);
-    }
-
-    function disableButton() {
-        return setSubmitButtonState(nameInputValue.length > 4 || emailInputValue.length > 4);
+    function handleSubmitForm(e) {
+        console.log(formValues);
+        e.preventDefault();
+        props.onSubmitProfileChanges(formValues);
     }
 
     return (
@@ -43,13 +37,13 @@ function Profile(props) {
                     isLoggedIn={props.isLoggedIn}
                     type={'profile'}
                     isLogoHidden={isLogoHidden}
-                    title={`Привет, ${userName}!`}
+                    title={`Привет, ${props.userData.name}!`}
                     submitButtonText={'Сохранить'}
                     linkText={'Выйти из аккаунта'}
                     isProfileEdit={props.isProfileEdit}
                     onProfileEdit={props.onProfileEdit}
-                    onSubmit={props.onProfileEditSubmit}
-                    isSubmitButtonDisable={submitButtonState}
+                    onSubmit={handleSubmitForm}
+                    isValid={isValid}
                 >
                     <div className="profile__input-container">
                         <label className="profile__input-label" htmlFor="name">
@@ -64,10 +58,11 @@ function Profile(props) {
                             minLength="2"
                             maxLength="30"
                             autoComplete="off"
-                            defaultValue="Виталий"
                             required
+                            // defaultValue={nameInputValue}
                             disabled={props.isProfileEdit ? '' : 'disabled'}
-                            onChange={handleNameInputChange}
+                            onChange={handleChange}
+                            value={formValues.name}
                         />
                     </div>
                     <div className="profile__input-container profile__input-container_borderless">
@@ -75,18 +70,18 @@ function Profile(props) {
                             E-mail
                         </label>
                         <input
-                            type="email"
+                            // type="email"
                             className="profile__input"
                             name="email"
                             id="email"
                             placeholder="E-mail"
-                            minLength="6"
-                            maxLength="30"
                             autoComplete="off"
-                            defaultValue="pochta@yandex.ru"
+                            // defaultValue={emailInputValue}
                             required
                             disabled={props.isProfileEdit ? '' : 'disabled'}
-                            onChange={handleEmailInputChange}
+                            // onChange={handleEmailInputChange}
+                            onChange={handleChange}
+                            value={formValues.email}
                         />
                     </div>
                 </AuthenticationPage>
