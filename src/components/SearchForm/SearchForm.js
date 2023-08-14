@@ -2,22 +2,27 @@ import './SearchForm.css';
 import searchIcon from '../../images/searchIcon.svg';
 import findButtonIcon from '../../images/findIcon.svg';
 import FilterSwitch from '../FilterSwitch/FilterSwitch';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function SearchForm(props) {
+    const location = useLocation();
+    const path = location.pathname;
     // const [isChecked, setIsChecked] = useState(false); // Состояние чекбокса
     const [inputValue, setInputValue] = useState(''); // Состояние Input Field
 
+    function getFormParams() {
+        if (path === '/movies') {
+        }
+    }
+
     function searchFormSubmit(e) {
         e.preventDefault();
-        console.log(inputValue);
-        // props.setUserRequest(inputValue);
         props.onSubmitNew(props.userRequest);
     }
 
     function handleChange(e) {
         props.setUserRequest(e.target.value);
-        console.log(e.target.value);
     }
 
     return (
@@ -48,7 +53,7 @@ function SearchForm(props) {
                     </div>
                     <FilterSwitch
                         setIsShortFilm={props.setIsShortFilm}
-                        inputValue={inputValue}
+                        isShortFilm={props.isShortFilm}
                         setUserRequest={props.setUserRequest}
                     />
                 </form>

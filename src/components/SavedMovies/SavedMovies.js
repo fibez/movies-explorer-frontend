@@ -4,6 +4,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import './SavedMovies.css';
 import Preloader from '../Preloader/Preloader';
 import Footer from '../Footer/Footer';
+import { useEffect } from 'react';
 
 function SavedMovies(props) {
     return (
@@ -16,8 +17,18 @@ function SavedMovies(props) {
                 onBurgerMenuClose={props.onBurgerMenuClose}
             />
             <main className="savedmovies">
-                <SearchForm />
-                {props.isLoading ? <Preloader /> : <MovieCardList movies={props.movies} />}
+                <SearchForm
+                    setIsShortFilm={props.setIsShortFilm}
+                    isShortFilm={props.issShortFilm}
+                    setUserRequest={props.setUserRequest}
+                    userRequest={props.userRequest}
+                    onSubmitNew={props.onSubmitNew}
+                />
+                {props.isLoading ? (
+                    <Preloader />
+                ) : (
+                    <MovieCardList renderedMovies={props.moviesToRender} savedMovies={props.savedMovies} />
+                )}
             </main>
             <Footer />
         </>

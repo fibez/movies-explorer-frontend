@@ -7,7 +7,7 @@ function FilterSwitch(props) {
     const handleCheckboxChange = (event) => {
         const newIsChecked = event.target.checked;
         setIsChecked(newIsChecked);
-        props.setIsShortFilm(newIsChecked); // Устанавливаем состояние чекбокса в родительском компоненте
+        props.setIsShortFilm(newIsChecked);
         props.setUserRequest(props.inputValue);
     };
 

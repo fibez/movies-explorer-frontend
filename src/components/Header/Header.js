@@ -17,9 +17,9 @@ function Header(props) {
         }
     }
 
-    function isAuthorisedPath() {
-        return currentPath === '/movies' || currentPath === '/saved-movies' || currentPath === '/profile';
-    }
+    // function isAuthorisedPath() {
+    //     return currentPath === '/movies' || currentPath === '/saved-movies' || currentPath === '/profile';
+    // }
 
     return (
         <header
@@ -29,7 +29,7 @@ function Header(props) {
         >
             <Logo></Logo>
             <Navigation isLoggedIn={props.isLoggedIn}></Navigation>
-            {isAuthorisedPath() && (
+            {props.isLoggedIn && (
                 <>
                     <BurgerMenuButton onBurgerMenuOpen={props.onBurgerMenuOpen} />
                     <BurgerMenu

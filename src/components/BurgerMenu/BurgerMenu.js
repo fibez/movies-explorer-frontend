@@ -2,10 +2,24 @@ import Popup from '../Popup/Popup';
 import { NavLink, useLocation } from 'react-router-dom';
 import './BurgerMenu.css';
 import AccountButton from '../AccountButton/AccountButton';
+import { useEffect } from 'react';
 
 function BurgerMenu(props) {
     const location = useLocation();
     const path = location.pathname;
+
+    useEffect(() => {
+        const handleEsc = (event) => {
+            if (event.key === 'Escape') {
+                props.onBurgerMenuClose();
+            }
+        };
+        window.addEventListener('keydown', handleEsc);
+
+        return () => {
+            window.removeEventListener('keydown', handleEsc);
+        };
+    }, []);
 
     return (
         <Popup isOpen={props.isBurgerMenuOppened}>

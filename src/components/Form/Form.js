@@ -4,9 +4,10 @@ import useForm from '../../hooks/useForm';
 import { useEffect, useState } from 'react';
 
 function Form(props) {
-    const { isValid } = useForm();
     const location = useLocation();
-    // const isButtonDisabled = !props.isFormValid;
+    const isButtonDisabled = !props.isFormValid || props.isLoading;
+    const isUserRequestSucces = props.isUserRequestSucces;
+
     function getClassNameByPath() {
         const path = location.pathname;
 
@@ -19,18 +20,38 @@ function Form(props) {
         }
     }
 
+    function getClassNameByUserRequestSuccess() {
+        if (isUserRequestSucces) {
+            return 'form__error-message_success';
+        }
+    }
+
     function submitForm(e) {
         e.preventDefault();
         props.onSubmit();
     }
 
-    return (
-        <form action="#" className="form" name={props.name} onSubmit={props.onSubmit} noValidate>
-            {props.children}
+    useEffect(() => {
+        if (props.formValidationMessage) {
+            console.log('jopa');
+        }
+    }, [props.formValidationMessage]);
 
+    return (
+        <form action="#" className="form" name={props.name} onSubmit={submitForm} noValidate>
+            {props.children}
+            <span
+                className={`form__error-message ${getClassNameByUserRequestSuccess()} ${
+                    location.pathname === '/signin' || location.pathname === '/signup'
+                        ? 'form__error-message_auth-page'
+                        : ''
+                }`}
+            >
+                {props.formValidationMessage}
+            </span>
             <button
                 type="submit"
-                // disabled={isButtonDisabled}
+                disabled={isButtonDisabled}
                 className={`form__submit-button${props.type === 'profile' ? ' form__submit-button_type_profile' : ''}${
                     props.isProfileEdit ? ' form__submit-button_type_profile-shown' : ''
                 }${getClassNameByPath()}${''}`}

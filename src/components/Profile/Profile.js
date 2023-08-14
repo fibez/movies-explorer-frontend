@@ -1,25 +1,41 @@
 import './Profile.css';
 import Header from '../Header/Header';
 import AuthenticationPage from '../AuthenticationPage/AuthenticationPage';
-import { useEffect, useState } from 'react';
+import { useEffect, useContext } from 'react';
 import useForm from '../../hooks/useForm';
+import { useLocation } from 'react-router-dom';
+import { CurrentUserContext } from '../../context/CurrentUserContext';
 
 function Profile(props) {
+    const currentUser = useContext(CurrentUserContext);
     const isLogoHidden = true;
-    const [nameInputValue, setNameInputValue] = useState('');
-    const [emailInputValue, setEmailInputValue] = useState('');
-    const [submitButtonState, setSubmitButtonState] = useState(true);
-
-    const { formValues, handleChange, isValid } = useForm();
+    const { formValues, handleChange, isValid, inputErrors, resetForm } = useForm();
+    const location = useLocation;
 
     useEffect(() => {
-        formValues.name = props.userData.name;
-        formValues.email = props.userData.email;
+        props.onBurgerMenuClose();
+
+        if (currentUser) {
+            resetForm(currentUser, {}, true);
+        }
+    }, [currentUser, resetForm]);
+
+    useEffect(() => {
+        props.pathHandler(location.pathname);
+        const handleEsc = (event) => {
+            if (event.key === 'Escape') {
+                props.onProfileEditSubmit();
+                resetForm(currentUser, {}, true);
+            }
+        };
+        window.addEventListener('keydown', handleEsc);
+
+        return () => {
+            window.removeEventListener('keydown', handleEsc);
+        };
     }, []);
 
-    function handleSubmitForm(e) {
-        console.log(formValues);
-        e.preventDefault();
+    function handleSubmitForm() {
         props.onSubmitProfileChanges(formValues);
     }
 
@@ -37,13 +53,17 @@ function Profile(props) {
                     isLoggedIn={props.isLoggedIn}
                     type={'profile'}
                     isLogoHidden={isLogoHidden}
-                    title={`Привет, ${props.userData.name}!`}
+                    title={`Привет, ${currentUser.name}!`}
                     submitButtonText={'Сохранить'}
                     linkText={'Выйти из аккаунта'}
                     isProfileEdit={props.isProfileEdit}
                     onProfileEdit={props.onProfileEdit}
                     onSubmit={handleSubmitForm}
                     isValid={isValid}
+                    formValidationMessage={props.formValidationMessage}
+                    isLoading={props.isLoading}
+                    isUserRequestSucces={props.isUserRequestSucces}
+                    onLogOut={props.onLogOut}
                 >
                     <div className="profile__input-container">
                         <label className="profile__input-label" htmlFor="name">
@@ -58,32 +78,28 @@ function Profile(props) {
                             minLength="2"
                             maxLength="30"
                             autoComplete="off"
-                            required
-                            // defaultValue={nameInputValue}
                             disabled={props.isProfileEdit ? '' : 'disabled'}
                             onChange={handleChange}
-                            value={formValues.name}
+                            value={formValues.name || ''}
                         />
                     </div>
+                    <span className="profile__input-error profile__error-name">{inputErrors.name || ''}</span>
                     <div className="profile__input-container profile__input-container_borderless">
                         <label htmlFor="email" className="profile__input-label">
                             E-mail
                         </label>
                         <input
-                            // type="email"
                             className="profile__input"
                             name="email"
                             id="email"
                             placeholder="E-mail"
                             autoComplete="off"
-                            // defaultValue={emailInputValue}
-                            required
                             disabled={props.isProfileEdit ? '' : 'disabled'}
-                            // onChange={handleEmailInputChange}
                             onChange={handleChange}
-                            value={formValues.email}
+                            value={formValues.email || ''}
                         />
                     </div>
+                    <span className="profile__input-error profile__error-email">{inputErrors.email || ''}</span>
                 </AuthenticationPage>
             </main>
         </>

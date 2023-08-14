@@ -8,14 +8,12 @@ class MainApi {
     }
 
     _request(path, method, body) {
-        console.log(body);
         return fetch(`${this._address}/${path}`, {
             method: method,
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${Cookies.get('jwt')}`,
             },
-            // credentials: 'include',
             body: body,
         }).then(this._checkResponse);
     }
@@ -31,66 +29,39 @@ class MainApi {
         return this._request('users/me', 'GET');
     }
 
-    updateUserInfo(userData) {
-        console.log(userData);
+    updateUserInfo(email, name) {
         const body = JSON.stringify({
-            email: userData.email,
-            name: userData.name,
+            email: email,
+            name: name,
         });
         return this._request('users/me', 'PATCH', body);
     }
 
-    getMovies() {
-        return fetch(`${this._address}/movies`, {
-            method: 'GET',
-            credentials: 'include',
-        }).then((res) => {
-            return this._getResponseData(res);
-        });
+    getSavedMovies() {
+        return this._request('movies', 'GET');
     }
 
-    addMovie({
-        country,
-        director,
-        duration,
-        year,
-        description,
-        image,
-        trailerLink,
-        nameRU,
-        nameEN,
-        thumbnail,
-        movieId,
-    }) {
-        return fetch(`${this._address}/movies`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: this._headers,
-            body: JSON.stringify({
-                country,
-                director,
-                duration,
-                year,
-                description,
-                image,
-                trailerLink,
-                nameRU,
-                nameEN,
-                thumbnail,
-                movieId,
-            }),
-        }).then((res) => {
-            return this._getResponseData(res);
+    addMovie(movieData) {
+        const body = JSON.stringify({
+            country: movieData.country,
+            director: movieData.director,
+            duration: movieData.duration,
+            year: movieData.year,
+            description: movieData.description,
+            image: movieData.image,
+            trailerLink: movieData.trailerLink,
+            nameRU: movieData.nameRU,
+            nameEN: movieData.nameEN,
+            thumbnail: movieData.thumbnail,
+            movieId: movieData.movieId,
         });
+
+        console.log(movieData);
+        return this._request('movies', 'POST', body);
     }
 
     deleteMovie(_id) {
-        return fetch(`${this._address}/movies/${_id}`, {
-            method: 'DELETE',
-            credentials: 'include',
-        }).then((res) => {
-            return this._getResponseData(res);
-        });
+        return this._request(`movies/${_id}`, 'DELETE');
     }
 }
 
