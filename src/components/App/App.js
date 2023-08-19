@@ -145,21 +145,19 @@ function App() {
         localStorage.setItem('savedMovies', JSON.stringify(updatedSavedMovies));
     }
 
-    function handleDeleteMovieFromSaved(id, parentCard) {
+    function handleDeleteMovieFromSaved(id) {
         mainApi.deleteMovie(id).then(() => {
-            if (location.pathname === '/saved-movies') {
-                parentCard.remove();
-            }
-            removeSavedMovieFromState(id);
+            removeSavedMovieFromStates(id);
         });
     }
 
-    function removeSavedMovieFromState(movieId) {
-        setSavedMovies((oldSavedMovies) => oldSavedMovies.filter((movie) => movie.movieId !== movieId));
+    function removeSavedMovieFromStates(movieId) {
+        const newSavedMovies = savedMovies.filter((movie) => movie.movieId !== movieId);
+        const newSavedFilteredMovies = savedFilteredMovies.filter((movie) => movie.movieId !== movieId);
 
-        const existingSavedMovies = JSON.parse(localStorage.getItem('savedMovies')) || [];
-        const updatedSavedMovies = existingSavedMovies.filter((movie) => movie.movieId !== movieId);
-        localStorage.setItem('savedMovies', JSON.stringify(updatedSavedMovies));
+        localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
+        setSavedMovies(newSavedMovies);
+        setSavedFilteredMovies(newSavedFilteredMovies);
     }
 
     // Регистрация, авторизация и выход из приложения

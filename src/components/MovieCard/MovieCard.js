@@ -24,8 +24,7 @@ function MovieCard(props) {
         return savedMovies.some((savedMovie) => savedMovie.movieId === movie.id);
     }
 
-    function handleLikeClick(e) {
-        const parentCard = e.target.closest('.moviecard__card');
+    function handleLikeClick() {
         const movieId = props.movie.id ? props.movie.id : props.movie.movieId;
 
         if (path === '/movies') {
@@ -35,7 +34,7 @@ function MovieCard(props) {
                 props.onSaveMovie(props.movie);
             }
         } else {
-            props.onDeleteMovie(movieId, parentCard);
+            props.onDeleteMovie(movieId);
         }
         setIsLiked(!isLiked);
     }

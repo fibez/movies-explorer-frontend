@@ -9,13 +9,14 @@ function MovieCardList(props) {
     const { startIndex, endIndex, maxSections, anotherSectionButtonPressed, setAnotherSectionButtonPressed } =
         useGreedProperties(props.filteredMovies);
 
-    useEffect(() => {
-        getCards(props.filteredMovies);
-    }, [props.filteredMovies, props.savedMovies]);
+    // useEffect(() => {
+    //     console.log(props.savedMovies);
+    //     getCards(props.filteredMovies);
+    // }, [props.filteredMovies, props.savedMovies]);
 
-    function getCards(movies) {
-        if (movies) {
-            return movies.map((movie, index) => (
+    function getCards() {
+        if (props.filteredMovies) {
+            return props.filteredMovies.map((movie, index) => (
                 <MovieCard
                     key={movie.id || movie.movieId}
                     index={index}
