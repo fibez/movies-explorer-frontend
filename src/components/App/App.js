@@ -248,6 +248,8 @@ function App() {
         Cookies.remove('jwt');
         localStorage.clear();
         setLoggedIn(false);
+        setSavedMovies([]);
+        setFilteredMovies([]);
     }
 
     function handleProfileChange(formValues) {
