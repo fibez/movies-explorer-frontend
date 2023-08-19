@@ -1,7 +1,5 @@
 import './Form.css';
-import { useLocation, useSearchParams } from 'react-router-dom';
-import useForm from '../../hooks/useForm';
-import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function Form(props) {
     const location = useLocation();
@@ -23,6 +21,8 @@ function Form(props) {
     function getClassNameByUserRequestSuccess() {
         if (isUserRequestSucces) {
             return 'form__error-message_success';
+        } else if (!isUserRequestSucces) {
+            return 'form__error-message_failure';
         }
     }
 
@@ -30,12 +30,6 @@ function Form(props) {
         e.preventDefault();
         props.onSubmit();
     }
-
-    useEffect(() => {
-        if (props.formValidationMessage) {
-            console.log('jopa');
-        }
-    }, [props.formValidationMessage]);
 
     return (
         <form action="#" className="form" name={props.name} onSubmit={submitForm} noValidate>

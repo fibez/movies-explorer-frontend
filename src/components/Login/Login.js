@@ -56,11 +56,9 @@ function Login(props) {
                     name="password"
                     id="password"
                     placeholder="Пароль"
-                    minLength="6"
-                    maxLength="30"
                     autoComplete="off"
-                    onChange={handleChange}
                     value={formValues.password}
+                    onChange={handleChange}
                     required
                 />
                 <span className="login__error">{inputErrors.password}</span>

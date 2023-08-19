@@ -6,23 +6,31 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function SearchForm(props) {
+    const [userRequest, setUserRequest] = useState('');
+    const [checkBoxState, setCheckBoxState] = useState(false);
     const location = useLocation();
     const path = location.pathname;
-    // const [isChecked, setIsChecked] = useState(false); // Состояние чекбокса
-    const [inputValue, setInputValue] = useState(''); // Состояние Input Field
 
-    function getFormParams() {
+    useEffect(() => {
         if (path === '/movies') {
+            setUserRequest(localStorage.getItem('userRequest'));
+            setCheckBoxState(localStorage.getItem('checkBoxState') === 'true');
         }
-    }
+    }, [path]);
 
     function searchFormSubmit(e) {
         e.preventDefault();
-        props.onSubmitNew(props.userRequest);
+
+        if (path === '/movies') {
+            localStorage.setItem('userRequest', userRequest);
+            localStorage.setItem('checkBoxState', JSON.stringify(checkBoxState));
+        }
+
+        props.onSubmit(userRequest, checkBoxState);
     }
 
     function handleChange(e) {
-        props.setUserRequest(e.target.value);
+        setUserRequest(e.target.value);
     }
 
     return (
@@ -39,7 +47,7 @@ function SearchForm(props) {
                                 id="search"
                                 placeholder="Фильм"
                                 autoComplete="off"
-                                defaultValue={localStorage.getItem('userRequest')}
+                                value={userRequest}
                                 onChange={handleChange}
                             />
                         </label>
@@ -51,11 +59,7 @@ function SearchForm(props) {
                             ></img>
                         </button>
                     </div>
-                    <FilterSwitch
-                        setIsShortFilm={props.setIsShortFilm}
-                        isShortFilm={props.isShortFilm}
-                        setUserRequest={props.setUserRequest}
-                    />
+                    <FilterSwitch setCheckBoxState={setCheckBoxState} checkBoxState={checkBoxState} />
                 </form>
             </div>
         </section>

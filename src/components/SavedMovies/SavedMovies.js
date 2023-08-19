@@ -7,6 +7,9 @@ import Footer from '../Footer/Footer';
 import { useEffect } from 'react';
 
 function SavedMovies(props) {
+    useEffect(() => {
+        props.onSubmit('');
+    }, [props.allSavedMovies]);
     return (
         <>
             <Header
@@ -17,17 +20,15 @@ function SavedMovies(props) {
                 onBurgerMenuClose={props.onBurgerMenuClose}
             />
             <main className="savedmovies">
-                <SearchForm
-                    setIsShortFilm={props.setIsShortFilm}
-                    isShortFilm={props.issShortFilm}
-                    setUserRequest={props.setUserRequest}
-                    userRequest={props.userRequest}
-                    onSubmitNew={props.onSubmitNew}
-                />
+                <SearchForm onSubmit={props.onSubmit} />
                 {props.isLoading ? (
                     <Preloader />
                 ) : (
-                    <MovieCardList renderedMovies={props.moviesToRender} savedMovies={props.savedMovies} />
+                    <MovieCardList
+                        filteredMovies={props.filteredMovies}
+                        savedMovies={props.savedMovies}
+                        onDeleteMovie={props.onDeleteMovie}
+                    />
                 )}
             </main>
             <Footer />

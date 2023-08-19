@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { nameRegex, passwordRegex } from '../utils/config/regex.js';
 const validator = require('email-validator');
 
@@ -16,7 +16,7 @@ function useForm() {
         } else if (name === 'email' && !validator.validate(value)) {
             e.target.setCustomValidity('Введен некорректный e-mail.');
         } else if (name === 'password' && !regexInputValidation(value, passwordRegex)) {
-            e.target.setCustomValidity('Пароль должен содержать минимум 6 символов и 1 цифру');
+            e.target.setCustomValidity('Пароль должен содержать минимум 6 букв и 1 цифру');
         } else {
             e.target.setCustomValidity('');
         }
@@ -33,10 +33,6 @@ function useForm() {
     function nameInputValidation(value) {
         return value.length >= 2 && value.length <= 30;
     }
-
-    useEffect(() => {
-        console.log(regexInputValidation('dddddd1', passwordRegex));
-    }, []);
 
     const resetForm = useCallback(function reset(values = {}, errors = {}, formValid = false) {
         setFormValues(values);

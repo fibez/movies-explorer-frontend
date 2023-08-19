@@ -7,26 +7,18 @@ import { useLocation } from 'react-router-dom';
 
 function Header(props) {
     const location = useLocation();
-    const currentPath = location.pathname;
+    const path = location.pathname;
 
     function getClassNameByPath() {
-        if (currentPath === '/movies' || currentPath === '/saved-movies' || currentPath === '/profile') {
+        if (props.isLoggedIn && path !== '/') {
             return 'header_authorized';
         } else {
             return 'header_unauthorized';
         }
     }
 
-    // function isAuthorisedPath() {
-    //     return currentPath === '/movies' || currentPath === '/saved-movies' || currentPath === '/profile';
-    // }
-
     return (
-        <header
-            className={`header ${getClassNameByPath()} ${
-                currentPath === '/profile' ? 'header_authorized-profile' : ''
-            }`}
-        >
+        <header className={`header ${getClassNameByPath()} ${path === '/profile' ? 'header_authorized-profile' : ''}`}>
             <Logo></Logo>
             <Navigation isLoggedIn={props.isLoggedIn}></Navigation>
             {props.isLoggedIn && (

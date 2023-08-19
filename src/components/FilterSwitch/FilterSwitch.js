@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './FilterSwitch.css';
 
 function FilterSwitch(props) {
-    const [isChecked, setIsChecked] = useState(false);
-
-    const handleCheckboxChange = (event) => {
-        const newIsChecked = event.target.checked;
-        setIsChecked(newIsChecked);
-        props.setIsShortFilm(newIsChecked);
-        props.setUserRequest(props.inputValue);
-    };
+    function handleCheckboxChange(e) {
+        props.setCheckBoxState(e.target.checked);
+    }
 
     return (
         <div className="filterswitch">
@@ -19,7 +14,7 @@ function FilterSwitch(props) {
                     className="filterswitch__invisible-checkbox"
                     id="checkbox"
                     name="checkbox"
-                    checked={isChecked}
+                    checked={props.checkBoxState}
                     onChange={handleCheckboxChange}
                 />
                 <span className="filterswitch__visible-checkbox filterswitch__visible-checkbox_type_checked"></span>

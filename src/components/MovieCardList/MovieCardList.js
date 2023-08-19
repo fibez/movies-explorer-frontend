@@ -2,33 +2,35 @@ import './MovieCardList.css';
 import MovieCard from '../MovieCard/MovieCard';
 import Devider from '../Devider/Devider';
 import AddFilmsButton from '../AddFilmsButton/AddFilmsButton';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useGreedProperties } from '../../utils/cardGreedHandler';
-import { useLocation } from 'react-router-dom';
 
 function MovieCardList(props) {
-    const location = useLocation();
-    const path = location.pathname;
+    useEffect(() => {
+        getCards(props.filteredMovies);
+    }, [props.filteredMovies, props.savedMovies]);
 
     function getCards(movies) {
         return movies.map((movie, index) => (
             <MovieCard
-                key={index}
+                key={movie.id || movie.movieId}
+                index={index}
                 movie={movie}
-                addToSaved={props.addToSaved}
-                savedMovies={props.savedMovies ? props.savedMovies : []}
+                savedMovies={props.savedMovies}
+                onDeleteMovie={props.onDeleteMovie}
+                onSaveMovie={props.onSaveMovie}
             />
         ));
     }
     const { startIndex, endIndex, maxSections, anotherSectionButtonPressed, setAnotherSectionButtonPressed } =
-        useGreedProperties(props);
+        useGreedProperties(props.filteredMovies);
 
     return (
         <>
-            {maxSections >= anotherSectionButtonPressed && maxSections > 0 && props.renderedMovies.length > endIndex ? (
+            {maxSections >= anotherSectionButtonPressed && maxSections > 0 && props.filteredMovies.length > endIndex ? (
                 <div>
                     <section className="moviecardlist">
-                        <ul className="moviecard">{getCards(props.renderedMovies.slice(startIndex, endIndex))}</ul>
+                        <ul className="moviecard">{getCards(props.filteredMovies.slice(startIndex, endIndex))}</ul>
                         <AddFilmsButton
                             anotherSectionButtonPressed={anotherSectionButtonPressed}
                             setAnotherSectionButtonPressed={setAnotherSectionButtonPressed}
@@ -38,9 +40,9 @@ function MovieCardList(props) {
             ) : (
                 <div>
                     <section className="moviecardlist">
-                        <ul className="moviecard">{getCards(props.renderedMovies.slice(0, endIndex))}</ul>
+                        <ul className="moviecard">{getCards(props.filteredMovies.slice(0, endIndex))}</ul>
                     </section>
-                    <Devider />
+                    <Devider filteredMovies={props.filteredMovies} />
                 </div>
             )}
         </>

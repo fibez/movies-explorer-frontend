@@ -56,7 +56,6 @@ class MainApi {
             movieId: movieData.movieId,
         });
 
-        console.log(movieData);
         return this._request('movies', 'POST', body);
     }
 
@@ -66,6 +65,5 @@ class MainApi {
 }
 
 const mainApi = new MainApi(MAIN_API_URL);
-// const mainApi = new MainApi(MAIN_API_URL, Cookies.get('jwt'));
 
 export default mainApi;

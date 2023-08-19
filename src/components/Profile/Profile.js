@@ -3,14 +3,12 @@ import Header from '../Header/Header';
 import AuthenticationPage from '../AuthenticationPage/AuthenticationPage';
 import { useEffect, useContext } from 'react';
 import useForm from '../../hooks/useForm';
-import { useLocation } from 'react-router-dom';
 import { CurrentUserContext } from '../../context/CurrentUserContext';
 
 function Profile(props) {
     const currentUser = useContext(CurrentUserContext);
     const isLogoHidden = true;
     const { formValues, handleChange, isValid, inputErrors, resetForm } = useForm();
-    const location = useLocation;
 
     useEffect(() => {
         props.onBurgerMenuClose();
@@ -21,7 +19,6 @@ function Profile(props) {
     }, [currentUser, resetForm]);
 
     useEffect(() => {
-        props.pathHandler(location.pathname);
         const handleEsc = (event) => {
             if (event.key === 'Escape') {
                 props.onProfileEditSubmit();
@@ -43,7 +40,6 @@ function Profile(props) {
         <>
             <Header
                 isLoggedIn={props.isLoggedIn}
-                handleLogIn={props.handleLogIn}
                 isBurgerMenuOppened={props.isBurgerMenuOppened}
                 onBurgerMenuOpen={props.onBurgerMenuOpen}
                 onBurgerMenuClose={props.onBurgerMenuClose}

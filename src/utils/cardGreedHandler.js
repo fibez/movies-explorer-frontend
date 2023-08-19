@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function handleCardGreed(props, screenWidth) {
+function handleCardGreed(moviesList, screenWidth) {
     let baseColumns = 0;
     let firstSectionMovieNumber = 0;
     let additionalMoviesNumber = 0;
@@ -29,22 +29,25 @@ function handleCardGreed(props, screenWidth) {
     }
 
     const maxSections = Math.floor(
-        (props.renderedMovies.length - firstSectionMovieNumber > 0 ? props.renderedMovies.length - firstSectionMovieNumber : 0) /
+        (moviesList.length - firstSectionMovieNumber > 0 ? moviesList.length - firstSectionMovieNumber : 0) /
             additionalMoviesNumber
     );
 
     const remainingMovies =
-        props.renderedMovies.length < firstSectionMovieNumber
-            ? props.renderedMovies.length
-            : (props.renderedMovies.length - firstSectionMovieNumber) % additionalMoviesNumber;
+        moviesList.length < firstSectionMovieNumber
+            ? moviesList.length
+            : (moviesList.length - firstSectionMovieNumber) % additionalMoviesNumber;
 
     return { maxSections, remainingMovies, firstSectionMovieNumber, additionalMoviesNumber };
 }
 
-export function useGreedProperties(props) {
+export function useGreedProperties(moviesList) {
     const screenWidth = window.innerWidth;
     const [anotherSectionButtonPressed, setAnotherSectionButtonPressed] = useState(0);
-    const { maxSections, remainingMovies, firstSectionMovieNumber, additionalMoviesNumber } = handleCardGreed(props, screenWidth);
+    const { maxSections, remainingMovies, firstSectionMovieNumber, additionalMoviesNumber } = handleCardGreed(
+        moviesList,
+        screenWidth
+    );
     const startIndex = 0;
     const endIndex = Math.min(
         startIndex + firstSectionMovieNumber + additionalMoviesNumber * anotherSectionButtonPressed,

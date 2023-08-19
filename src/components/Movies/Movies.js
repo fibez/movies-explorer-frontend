@@ -4,7 +4,6 @@ import SearchForm from '../SearchForm/SearchForm';
 import MovieCardList from '../MovieCardList/MovieCardList';
 import Footer from '../Footer/Footer';
 import Preloader from '../Preloader/Preloader';
-import { useEffect } from 'react';
 
 function Movies(props) {
     return (
@@ -17,21 +16,15 @@ function Movies(props) {
                 onBurgerMenuClose={props.onBurgerMenuClose}
             />
             <main className="movies">
-                <SearchForm
-                    //Фильтры
-                    setIsShortFilm={props.setIsShortFilm}
-                    isShortFilm={props.issShortFilm}
-                    setUserRequest={props.setUserRequest}
-                    userRequest={props.userRequest}
-                    onSubmitNew={props.onSubmitNew}
-                />
+                <SearchForm onSubmit={props.onSubmit} />
                 {props.isLoading ? (
                     <Preloader />
                 ) : (
                     <MovieCardList
-                        renderedMovies={props.moviesToRender}
+                        filteredMovies={props.filteredMovies}
                         savedMovies={props.savedMovies}
-                        addToSaved={props.addToSaved}
+                        onDeleteMovie={props.onDeleteMovie}
+                        onSaveMovie={props.onSaveMovie}
                     />
                 )}
             </main>
