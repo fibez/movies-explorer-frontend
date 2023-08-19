@@ -209,17 +209,27 @@ function App() {
             .then((data) => {
                 if (data.jwt) {
                     Cookies.set('jwt', data.jwt);
-                    mainApi.getUserInfo().then((res) => {
-                        setUserRequestSeccess(true);
-                        setFormValidationMessage('Вы успешно авторизированы');
-                        setCurrentUser(res);
-                        setTimeout(() => {
-                            setFormValidationMessage('');
-                            setLoading(false);
-                            setLoggedIn(true);
-                            navigation('/movies');
-                        }, 750);
-                    });
+                    mainApi
+                        .getUserInfo()
+                        .then((res) => {
+                            setUserRequestSeccess(true);
+                            setFormValidationMessage('Вы успешно авторизированы');
+                            setCurrentUser(res);
+                            setTimeout(() => {
+                                setFormValidationMessage('');
+                                setLoading(false);
+                                setLoggedIn(true);
+                                navigation('/movies');
+                            }, 750);
+                        })
+                        .then(() => {
+                            mainApi.getSavedMovies().then((res) => {
+                                setSavedFilteredMovies(res);
+                                setSavedMovies(res);
+                                localStorage.setItem('savedMovies', JSON.stringify(res));
+                                setFilteredMovies(JSON.parse(localStorage.getItem('foundMovies')));
+                            });
+                        });
                 }
             })
             .catch((err) => {

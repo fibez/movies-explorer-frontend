@@ -57,7 +57,7 @@ function Login(props) {
                     id="password"
                     placeholder="Пароль"
                     autoComplete="off"
-                    value={formValues.password}
+                    value={formValues.password || ''}
                     onChange={handleChange}
                     required
                 />

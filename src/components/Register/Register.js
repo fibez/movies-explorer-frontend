@@ -38,7 +38,7 @@ function Register(props) {
                     id="name"
                     placeholder="Имя"
                     autoComplete="off"
-                    value={formValues.name}
+                    value={formValues.name || ''}
                     onChange={handleChange}
                     required
                 />
@@ -53,7 +53,7 @@ function Register(props) {
                     id="email"
                     placeholder="E-mail"
                     autoComplete="off"
-                    value={formValues.email}
+                    value={formValues.email || ''}
                     onChange={handleChange}
                     required
                 />
@@ -68,7 +68,7 @@ function Register(props) {
                     id="password"
                     placeholder="Пароль"
                     autoComplete="off"
-                    value={formValues.password}
+                    value={formValues.password || ''}
                     onChange={handleChange}
                     required
                 />
