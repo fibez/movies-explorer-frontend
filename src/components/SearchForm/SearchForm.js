@@ -13,7 +13,9 @@ function SearchForm(props) {
 
     useEffect(() => {
         if (path === '/movies') {
-            setUserRequest(localStorage.getItem('userRequest'));
+            if (localStorage.getItem('userRequest') !== null) {
+                setUserRequest(localStorage.getItem('userRequest'));
+            }
             setCheckBoxState(localStorage.getItem('checkBoxState') === 'true');
         }
     }, [path]);
@@ -47,7 +49,7 @@ function SearchForm(props) {
                                 id="search"
                                 placeholder="Фильм"
                                 autoComplete="off"
-                                value={userRequest}
+                                value={userRequest || ''}
                                 onChange={handleChange}
                             />
                         </label>

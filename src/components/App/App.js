@@ -51,7 +51,9 @@ function App() {
                         setSavedFilteredMovies(res);
                         setSavedMovies(res);
                         localStorage.setItem('savedMovies', JSON.stringify(res));
-                        setFilteredMovies(JSON.parse(localStorage.getItem('foundMovies')));
+                        if (localStorage.getItem('foundMovies') !== null) {
+                            setFilteredMovies(JSON.parse(localStorage.getItem('foundMovies')) || []);
+                        }
                     });
                 });
         }
@@ -244,8 +246,7 @@ function App() {
 
     function handleLogOut() {
         Cookies.remove('jwt');
-        localStorage.removeItem('movies');
-        localStorage.removeItem('savedMovies');
+        localStorage.clear();
         setLoggedIn(false);
     }
 

@@ -5,7 +5,9 @@ function Devider(props) {
     const [pageHasMovies, setPageMoviesState] = useState(true);
 
     useEffect(() => {
-        setPageMoviesState(!props.filteredMovies.length > 0);
+        if (props.filteredMovies) {
+            setPageMoviesState(!props.filteredMovies.length > 0);
+        }
     }, [props.filteredMovies]);
 
     return (
