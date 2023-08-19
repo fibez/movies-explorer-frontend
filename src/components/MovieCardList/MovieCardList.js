@@ -7,7 +7,7 @@ import { useGreedProperties } from '../../hooks/useGreedProperties';
 
 function MovieCardList(props) {
     const { startIndex, endIndex, maxSections, anotherSectionButtonPressed, setAnotherSectionButtonPressed } =
-        useGreedProperties(props);
+        useGreedProperties(props.filteredMovies);
 
     useEffect(() => {
         getCards(props.filteredMovies);
