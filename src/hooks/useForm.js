@@ -15,8 +15,8 @@ function useForm() {
             e.target.setCustomValidity('Имя должно быть длинне чем 2 символа');
         } else if (name === 'email' && !validator.validate(value)) {
             e.target.setCustomValidity('Введен некорректный e-mail.');
-        } else if (name === 'password' && !regexInputValidation(value, passwordRegex)) {
-            e.target.setCustomValidity('Пароль должен содержать минимум 6 букв и 1 цифру');
+        } else if (name === 'password' && !passwordInputValidation(value)) {
+            e.target.setCustomValidity('Пароль должен содержать минимум 6 знаков');
         } else {
             e.target.setCustomValidity('');
         }
@@ -32,6 +32,10 @@ function useForm() {
     }
     function nameInputValidation(value) {
         return value.length >= 2 && value.length <= 30;
+    }
+
+    function passwordInputValidation(value) {
+        return value.length >= 6;
     }
 
     const resetForm = useCallback(function reset(values = {}, errors = {}, formValid = false) {
