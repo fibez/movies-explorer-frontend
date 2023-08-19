@@ -52,6 +52,11 @@
     line-height: normal;
 }
 
+.form__submit-button:disabled:hover {
+    cursor: auto;
+    opacity: 1;
+}
+
 .form__error-message {
     margin: 69px 0 0 0;
     height: 14px;

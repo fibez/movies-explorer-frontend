@@ -5,7 +5,7 @@ const validator = require('email-validator');
 function useForm() {
     const [formValues, setFormValues] = useState({});
     const [inputErrors, setInputErrors] = useState({});
-    const [isValid, setIsValid] = useState({});
+    const [isValid, setIsValid] = useState(false);
 
     function handleChange(e) {
         const { name, value } = e.target;

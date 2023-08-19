@@ -9,7 +9,13 @@ function AuthenticationPage(props) {
         <section className="authenticationpage">
             <div className="authenticationpage__title-container">
                 <Logo isLogoHidden={props.isLogoHidden} />
-                <h1 className={`authenticationpage__title ${props.type === 'profile' ? 'authenticationpage__title_profile' : ''}`}>{props.title}</h1>
+                <h1
+                    className={`authenticationpage__title ${
+                        props.type === 'profile' ? 'authenticationpage__title_profile' : ''
+                    }`}
+                >
+                    {props.title}
+                </h1>
             </div>
             <Form
                 buttonText={props.submitButtonText}
@@ -21,6 +27,7 @@ function AuthenticationPage(props) {
                 formValidationMessage={props.formValidationMessage}
                 isLoading={props.isLoading}
                 isUserRequestSucces={props.isUserRequestSucces}
+                isFormValuesDataDifferent={props.isFormValuesDataDifferent}
             >
                 {props.children}
             </Form>

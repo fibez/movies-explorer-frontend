@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 function Form(props) {
     const location = useLocation();
-    const isButtonDisabled = !props.isFormValid || props.isLoading;
+    const isButtonDisabled = !props.isFormValid || props.isLoading || props.isFormValuesDataDifferent;
     const isUserRequestSucces = props.isUserRequestSucces;
 
     function getClassNameByPath() {

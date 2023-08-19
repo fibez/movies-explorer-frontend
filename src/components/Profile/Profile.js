@@ -1,12 +1,13 @@
 import './Profile.css';
 import Header from '../Header/Header';
 import AuthenticationPage from '../AuthenticationPage/AuthenticationPage';
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import useForm from '../../hooks/useForm';
 import { CurrentUserContext } from '../../context/CurrentUserContext';
 
 function Profile(props) {
     const currentUser = useContext(CurrentUserContext);
+    const [isFormValuesDataDifferent, setIsFormValuesDataDifferent] = useState(false);
     const isLogoHidden = true;
     const { formValues, handleChange, isValid, inputErrors, resetForm } = useForm();
 
@@ -17,6 +18,14 @@ function Profile(props) {
             resetForm(currentUser, {}, true);
         }
     }, [currentUser, resetForm]);
+
+    useEffect(() => {
+        if (formValues.name === currentUser.name && formValues.email === currentUser.email) {
+            setIsFormValuesDataDifferent(true);
+        } else {
+            setIsFormValuesDataDifferent(false);
+        }
+    }, [formValues]);
 
     useEffect(() => {
         const handleEsc = (event) => {
@@ -60,6 +69,7 @@ function Profile(props) {
                     isLoading={props.isLoading}
                     isUserRequestSucces={props.isUserRequestSucces}
                     onLogOut={props.onLogOut}
+                    isFormValuesDataDifferent={isFormValuesDataDifferent}
                 >
                     <div className="profile__input-container">
                         <label className="profile__input-label" htmlFor="name">
