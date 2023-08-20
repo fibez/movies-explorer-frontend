@@ -36,7 +36,6 @@ function MovieCard(props) {
         } else {
             props.onDeleteMovie(movieId);
         }
-        setIsLiked(!isLiked);
     }
 
     function getButtonClass() {
@@ -59,7 +58,9 @@ function MovieCard(props) {
 
     return (
         <li className="moviecard__card">
-            <img className="moviecard__card-cover" src={getImgUrl()} alt={`Обложка фильма ${props.movie.nameRU}`} />
+            <a href={props.movie.trailerLink} target="_blank" rel="noreferrer">
+                <img className="moviecard__card-cover" src={getImgUrl()} alt={`Обложка фильма ${props.movie.nameRU}`} />
+            </a>
             <div className="moviecard__card-container">
                 <h2 className="moviecard__card-title">{props.movie.nameRU}</h2>
                 <button

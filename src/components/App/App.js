@@ -17,6 +17,7 @@ import auth from '../../utils/auth';
 import Cookies from 'js-cookie';
 import { CurrentUserContext } from '../../context/CurrentUserContext';
 import { BEAT_FILM_BASE_URL } from '../../utils/config/url';
+import { SHORT_MOVIE_DURATION } from '../../utils/config/movieCardsConfig';
 
 function App() {
     const navigation = useNavigate();
@@ -44,7 +45,9 @@ function App() {
                 .then((res) => {
                     setCurrentUser(res);
                     setLoggedIn(true);
-                    navigation('/movies');
+                    if (path === '/' || path === '/movies' || path === '/saved-movies' || path === '/profile') {
+                        navigation(path);
+                    }
                 })
                 .then(() => {
                     mainApi.getSavedMovies().then((res) => {
@@ -98,7 +101,7 @@ function App() {
 
     function filterMovies(movies, formValue, checkboxState) {
         const keyword = formValue ? formValue : '';
-        const maxDuration = 40;
+        const maxDuration = SHORT_MOVIE_DURATION;
         return movies.filter((movie) => {
             const keywordMatches =
                 movie.nameRU.toLowerCase().includes(keyword.toLowerCase()) ||
@@ -146,9 +149,14 @@ function App() {
     }
 
     function handleDeleteMovieFromSaved(id) {
-        mainApi.deleteMovie(id).then(() => {
-            removeSavedMovieFromStates(id);
-        });
+        mainApi
+            .deleteMovie(id)
+            .then(() => {
+                removeSavedMovieFromStates(id);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     function removeSavedMovieFromStates(movieId) {
@@ -276,6 +284,10 @@ function App() {
         navigation('/movies');
     }
 
+    function handleNavigateBack() {
+        navigation(-1);
+    }
+
     function handleEnableProfileEdit() {
         setProfileEdit(true);
     }
@@ -327,6 +339,7 @@ function App() {
                                 savedMovies={savedMovies}
                                 onDeleteMovie={handleDeleteMovieFromSaved}
                                 onSaveMovie={handleSaveMovie}
+                                filterMovies={filterMovies}
                             />
                         }
                     ></Route>
@@ -390,7 +403,7 @@ function App() {
                             />
                         }
                     ></Route>
-                    <Route path="*" element={<NotFound />}></Route>
+                    <Route path="*" element={<NotFound onNavigate={handleNavigateBack} />}></Route>
                 </Routes>
             </div>
         </CurrentUserContext.Provider>

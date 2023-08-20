@@ -6,11 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 function Register(props) {
     const navigation = useNavigate();
-    const { formValues, handleChange, isValid, inputErrors, resetForm } = useForm();
+    const { formValues, handleChange, isValid, inputErrors } = useForm();
 
     useEffect(() => {
-        props.isLoggedIn && navigation('/movies', { replace: true });
-    }, []);
+        props.isLoggedIn ? navigation('/movies') : navigation('/signup');
+    }, [props.isLoggedIn]);
 
     function handleSubmitForm(e) {
         props.onSubmitSignUp(formValues);

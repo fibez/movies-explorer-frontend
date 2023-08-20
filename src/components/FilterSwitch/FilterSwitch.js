@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import './FilterSwitch.css';
 
 function FilterSwitch(props) {

@@ -20,7 +20,7 @@ function SavedMovies(props) {
                 onBurgerMenuClose={props.onBurgerMenuClose}
             />
             <main className="savedmovies">
-                <SearchForm onSubmit={props.onSubmit} />
+                <SearchForm onSubmit={props.onSubmit} isLoading={props.isLoading} />
                 {props.isLoading ? (
                     <Preloader />
                 ) : (

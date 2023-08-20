@@ -20,6 +20,16 @@ function SearchForm(props) {
         }
     }, [path]);
 
+    useEffect(() => {
+        if (localStorage.getItem('userRequest') !== null && localStorage.getItem('checkBoxState') !== null) {
+            if (path === '/movies') {
+                localStorage.setItem('userRequest', userRequest);
+                localStorage.setItem('checkBoxState', JSON.stringify(checkBoxState));
+            }
+            props.onSubmit(userRequest, checkBoxState);
+        }
+    }, [checkBoxState]);
+
     function searchFormSubmit(e) {
         e.preventDefault();
 
@@ -53,7 +63,7 @@ function SearchForm(props) {
                                 onChange={handleChange}
                             />
                         </label>
-                        <button className="searchform__submit-button" type="submit">
+                        <button className="searchform__submit-button" type="submit" disabled={props.isLoading}>
                             <img
                                 className="searchform__find-button-icon"
                                 src={findButtonIcon}

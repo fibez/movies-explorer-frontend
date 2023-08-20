@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Devider.css';
 
 function Devider(props) {
+    const location = useLocation();
+    const pathname = location.pathname;
     const [pageHasMovies, setPageMoviesState] = useState(true);
 
     useEffect(() => {
@@ -12,7 +15,10 @@ function Devider(props) {
 
     return (
         <section className="devider">
-            {pageHasMovies ? <p className="devider__text">Ничего не найдено</p> : null}
+            {(pageHasMovies && localStorage.getItem('userRequest') !== null) ||
+            (pathname === '/saved-movies' && !localStorage.getItem('savedMovies')) ? (
+                <p className="devider__text">Ничего не найдено</p>
+            ) : null}
         </section>
     );
 }
