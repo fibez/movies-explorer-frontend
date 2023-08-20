@@ -16,7 +16,7 @@ function Devider(props) {
     return (
         <section className="devider">
             {(pageHasMovies && localStorage.getItem('userRequest') !== null) ||
-            (pathname === '/saved-movies' && !localStorage.getItem('savedMovies')) ? (
+            (pathname === '/saved-movies' && pageHasMovies) ? (
                 <p className="devider__text">Ничего не найдено</p>
             ) : null}
         </section>
