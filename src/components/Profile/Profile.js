@@ -1,39 +1,54 @@
 import './Profile.css';
 import Header from '../Header/Header';
 import AuthenticationPage from '../AuthenticationPage/AuthenticationPage';
-import { useEffect, useState } from 'react';
+import { useEffect, useContext, useState } from 'react';
+import useForm from '../../hooks/useForm';
+import { CurrentUserContext } from '../../context/CurrentUserContext';
 
 function Profile(props) {
+    const currentUser = useContext(CurrentUserContext);
+    const [isFormValuesDataDifferent, setIsFormValuesDataDifferent] = useState(false);
     const isLogoHidden = true;
-    const userName = 'Виталий';
-
-    const [nameInputValue, setNameInputValue] = useState('');
-    const [emailInputValue, setEmailInputValue] = useState('');
-    const [submitButtonState, setSubmitButtonState] = useState(true);
+    const { formValues, handleChange, isValid, inputErrors, resetForm } = useForm();
 
     useEffect(() => {
-        disableButton();
-    }, [nameInputValue, emailInputValue, submitButtonState]);
+        props.onBurgerMenuClose();
 
-    function handleNameInputChange(event) {
-        const value = event.target.value;
-        setNameInputValue(value);
-    }
+        if (currentUser) {
+            resetForm(currentUser, {}, true);
+        }
+    }, [currentUser, resetForm]);
 
-    function handleEmailInputChange(event) {
-        const value = event.target.value;
-        setEmailInputValue(value);
-    }
+    useEffect(() => {
+        if (formValues.name === currentUser.name && formValues.email === currentUser.email) {
+            setIsFormValuesDataDifferent(true);
+        } else {
+            setIsFormValuesDataDifferent(false);
+        }
+    }, [formValues]);
 
-    function disableButton() {
-        return setSubmitButtonState(nameInputValue.length > 4 || emailInputValue.length > 4);
+    useEffect(() => {
+        const handleEsc = (event) => {
+            if (event.key === 'Escape') {
+                props.onProfileEditSubmit();
+                resetForm(currentUser, {}, true);
+            }
+        };
+        window.addEventListener('keydown', handleEsc);
+
+        return () => {
+            window.removeEventListener('keydown', handleEsc);
+        };
+    }, []);
+
+    function handleSubmitForm() {
+        props.onSubmitProfileChanges(formValues);
     }
 
     return (
         <>
             <Header
                 isLoggedIn={props.isLoggedIn}
-                handleLogIn={props.handleLogIn}
                 isBurgerMenuOppened={props.isBurgerMenuOppened}
                 onBurgerMenuOpen={props.onBurgerMenuOpen}
                 onBurgerMenuClose={props.onBurgerMenuClose}
@@ -43,13 +58,18 @@ function Profile(props) {
                     isLoggedIn={props.isLoggedIn}
                     type={'profile'}
                     isLogoHidden={isLogoHidden}
-                    title={`Привет, ${userName}!`}
+                    title={`Привет, ${currentUser.name}!`}
                     submitButtonText={'Сохранить'}
                     linkText={'Выйти из аккаунта'}
                     isProfileEdit={props.isProfileEdit}
                     onProfileEdit={props.onProfileEdit}
-                    onSubmit={props.onProfileEditSubmit}
-                    isSubmitButtonDisable={submitButtonState}
+                    onSubmit={handleSubmitForm}
+                    isValid={isValid}
+                    formValidationMessage={props.formValidationMessage}
+                    isLoading={props.isLoading}
+                    isUserRequestSucces={props.isUserRequestSucces}
+                    onLogOut={props.onLogOut}
+                    isFormValuesDataDifferent={isFormValuesDataDifferent}
                 >
                     <div className="profile__input-container">
                         <label className="profile__input-label" htmlFor="name">
@@ -64,31 +84,28 @@ function Profile(props) {
                             minLength="2"
                             maxLength="30"
                             autoComplete="off"
-                            defaultValue="Виталий"
-                            required
                             disabled={props.isProfileEdit ? '' : 'disabled'}
-                            onChange={handleNameInputChange}
+                            onChange={handleChange}
+                            value={formValues.name || ''}
                         />
                     </div>
+                    <span className="profile__input-error profile__error-name">{inputErrors.name || ''}</span>
                     <div className="profile__input-container profile__input-container_borderless">
                         <label htmlFor="email" className="profile__input-label">
                             E-mail
                         </label>
                         <input
-                            type="email"
                             className="profile__input"
                             name="email"
                             id="email"
                             placeholder="E-mail"
-                            minLength="6"
-                            maxLength="30"
                             autoComplete="off"
-                            defaultValue="pochta@yandex.ru"
-                            required
                             disabled={props.isProfileEdit ? '' : 'disabled'}
-                            onChange={handleEmailInputChange}
+                            onChange={handleChange}
+                            value={formValues.email || ''}
                         />
                     </div>
+                    <span className="profile__input-error profile__error-email">{inputErrors.email || ''}</span>
                 </AuthenticationPage>
             </main>
         </>

@@ -1,7 +1,7 @@
 .profile__input-container {
     display: flex;
     flex-direction: row;
-    padding-bottom: 16px;
+    padding-bottom: 13px;
     border-bottom: 1px solid #e8e8e8;
     width: 410px;
 }
@@ -44,7 +44,7 @@
 
 .profile__input-container_borderless {
     margin-top: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     border-bottom: none;
 }
 
@@ -53,14 +53,14 @@
     font-family: 'Inter', 'Arial', sans-serif;
 }
 
-.profile__error {
+.profile__input-error {
     color: #ee3465;
     font-family: 'Inter', 'Arial', sans-serif;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-top: 6px;
+    margin: 6px 0 3px;
     height: 12px;
 }
 

@@ -4,69 +4,60 @@ import Logo from '../Logo/Logo';
 
 import './AuthenticationPage.css';
 
-function AuthenticationPage({
-    isLoggedIn,
-    type,
-    isLogoHidden,
-    title,
-    submitButtonText,
-    linkDescriptionText,
-    linkText,
-    children,
-    isProfileEdit,
-    onProfileEdit,
-    onSubmit,
-    isSubmitButtonDisable,
-    navTo,
-}) {
+function AuthenticationPage(props) {
     return (
         <section className="authenticationpage">
             <div className="authenticationpage__title-container">
-                <Logo isLogoHidden={isLogoHidden} />
+                <Logo isLogoHidden={props.isLogoHidden} />
                 <h1
                     className={`authenticationpage__title ${
-                        type === 'profile' ? 'authenticationpage__title_profile' : ''
+                        props.type === 'profile' ? 'authenticationpage__title_profile' : ''
                     }`}
                 >
-                    {title}
+                    {props.title}
                 </h1>
             </div>
             <Form
-                buttonText={submitButtonText}
-                type={type}
-                name={type}
-                isProfileEdit={isProfileEdit}
-                onSubmit={onSubmit}
-                isSubmitButtonDisable={isSubmitButtonDisable}
+                buttonText={props.submitButtonText}
+                type={props.type}
+                name={props.type}
+                isProfileEdit={props.isProfileEdit}
+                onSubmit={props.onSubmit}
+                isFormValid={props.isValid}
+                formValidationMessage={props.formValidationMessage}
+                isLoading={props.isLoading}
+                isUserRequestSucces={props.isUserRequestSucces}
+                isFormValuesDataDifferent={props.isFormValuesDataDifferent}
             >
-                {children}
+                {props.children}
             </Form>
-            {isLoggedIn && (
+            {props.isLoggedIn && (
                 <div className="authenticationpage__footer authenticationpage__footer_profile">
                     <button
                         className={`authenticationpage__footer-link authenticationpage__footer-link_edit-profile ${
-                            isProfileEdit ? 'authenticationpage__footer-link_hidden' : ''
+                            props.isProfileEdit ? 'authenticationpage__footer-link_hidden' : ''
                         }`}
-                        onClick={onProfileEdit}
+                        onClick={props.onProfileEdit}
                         type="button"
                     >
                         Редактировать
                     </button>
                     <NavLink
-                        to="/signin"
+                        to="/"
+                        onClick={props.onLogOut}
                         className={`authenticationpage__footer-link authenticationpage__footer-link_profile-logout ${
-                            isProfileEdit ? 'authenticationpage__footer-link_hidden' : ''
+                            props.isProfileEdit ? 'authenticationpage__footer-link_hidden' : ''
                         }`}
                     >
                         Выйти из аккаунта
                     </NavLink>
                 </div>
             )}
-            {!isLoggedIn && (
+            {!props.isLoggedIn && (
                 <div className="authenticationpage__footer">
-                    <p className="authenticationpage__footer-link-description">{linkDescriptionText}</p>
-                    <NavLink to={navTo} className={`authenticationpage__footer-link`}>
-                        {linkText}
+                    <p className="authenticationpage__footer-link-description">{props.linkDescriptionText}</p>
+                    <NavLink to={props.navTo} className={`authenticationpage__footer-link`}>
+                        {props.linkText}
                     </NavLink>
                 </div>
             )}

@@ -9,7 +9,13 @@ import Footer from '../Footer/Footer';
 function Main(props) {
     return (
         <>
-            <Header isLoggedIn={props.isLoggedOut}></Header>
+            <Header
+                isLoggedIn={props.isLoggedIn}
+                handleLogIn={props.handleLogIn}
+                isBurgerMenuOppened={props.isBurgerMenuOppened}
+                onBurgerMenuOpen={props.onBurgerMenuOpen}
+                onBurgerMenuClose={props.onBurgerMenuClose}
+            ></Header>
             <main className="main">
                 <Promo />
                 <NavTab />
